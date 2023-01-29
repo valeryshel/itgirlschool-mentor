@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- БЫЛО  -->
+  <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/8854/8854333.png" type="image/png" />
+  <!-- СТАЛО -->
+
+  <!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" /> -->
+
+  <title>WEEK1</title>
+</head>
+
+<body>
+  <h1>Week1</h1>
+
+  <h2>Атрибут тега</h2>
+
+  Атрибут — дополнительная характеристика тега или метатега. Они представляют собой специальные слова, которые
+  используются внутри начального тега для управления поведением элемента.
+
+  Атрибуты должны быть всегда:
+
+  <ul>
+    <li> Написаны в нижнем регистре.</li>
+    <li>Указываться только в первом открывающемся теге (для парных)</li>
+    <li>Иметь отступ в один пробел от имени тега.</li>
+    <li>Иметь имя, затем знак = и потом значение обернутое в кавычки. (не важно в двойные или одинарные)</li>
+  </ul>
+
+  Атрибуты без значений
+
+  <input disabled> - «сокращенный атрибут тега».
+  <input required>
+
+  Атрибуты со значениями
+
+  <a href="#">Link</a>
+  <img src="/1kitty.jpg" alt="1kitty.jpg">
+  <button disabled="disabled"></button>
+  <div class="test"></div>
+
+  Где-то атрибуты не нужны
+  <button></button>
+  <p></p>
+  <nav></nav>
+  <ul>
+    <li></li>
+  </ul>
+
+  Бывают атрибуты обязательные, без которых тег не будет правильно работать
+
+  <img src="kitty1.jpg" alt="kitty">
+  <a href="#">link</a>
+  <img src="1kitty.jpg" alt="Город Р'льех">
+
+  Атрибут id - должен быть уникальным
+  <div id="container">Некоторый контент</div>
+  <p id="infoText">Это абзац.</p>
+  <p id="infoText">Это абзац.</p> - ТАК НЕ НАДО!
+
+  Атрибут class - используется для идентификации элементов. Но в отличие от id, атрибут class не обязательно должен быть
+  уникальным в документе. Это означает, что вы можете применить один и тот же класс к нескольким элементам в документе
+  <p class="highlight">Это абзац.</p>
+  <p class="highlight">Это абзац.</p>
+  <p class="highlight">Это абзац.</p>
+  <p class="highlight">Это абзац.</p>
+
+  Атрибут title - используется для предоставления дополнительного объяснительного текста об элементе или его содержимом.
+  <abbr title="World Wide Web Consortium">W3C</abbr>
+
+  Атрибут style позволяет указывать правила стилевого CSS-оформления, такие как color (цвет), font (шрифт), border
+  (границы) и т. д. непосредственно внутри элемента.
+
+  <p style="color: blue;">Это абзац.</p>
+  <img src="1kitty.jpg" style="width: 100px;" alt="Cloudy Skykitty">
+  <div style="border: 1px solid red;">Некоторый контент</div>
+
+</body>
+
+</html>
