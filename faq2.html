@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Опросник</title>
+</head>
+
+<body>
+  <h1>Страница - опросник для владельцев котиков</h1>
+  <form>
+    <fieldset>
+      <legend><b>Имя</b></legend>
+      <div>
+        <label for="nickname">Кличка питомца</label>
+        <input type="text" id="nickname" />
+      </div><br>
+      <div>
+        <label for="name">Имя владельца</label>
+        <input type="text" id="name" />
+      </div>
+    </fieldset> <br>
+    <div>
+      <b><label for="contacts">Контакты</label></b>
+      <input type="text" id="contacts" />
+    </div> <br>
+    <div>
+      <b><label for="breed">Порода</label></b>
+      <select id="breed">
+        <option value="first option">Британская короткошерстная</option>
+        <option value="second option">Бенгальская кошка</option>
+        <option value="third option">Бурманская кошка</option>
+      </select>
+    </div> <br>
+    <div>
+      <b>Чем питается ваш котик<br /></b>
+      <label for="nutrition1">Сухой корм</label><input type="checkbox" id="nutrition1" value="1" /><br />
+      <label for="nutrition2">Влажный корм</label><input type="checkbox" id="nutrition2" value="2"><br />
+      <label for="nutrition3"></label>Натуральный корм<input type="checkbox" id="nutrition3" value="3" /><br />
+    </div> <br>
+    <div>
+
+      <fieldset>
+        <legend>
+          <h2>Пол питомца</h2>
+        </legend>
+        <b><label for="male">Самец</label><br /></b>
+        <input id="male" type="radio" name="sex" value="m" /><br />
+        <b><label for="female">Самка</label><br /></b>
+        <input id="female" type="radio" name="sex" value="f" /><br />
+      </fieldset>
+    </div> <br>
+    <div>
+      <b><label for="comment">Комментарий владельца</label></b><br />
+      <textarea id="comment" rows="10" cols="30"></textarea>
+    </div> <br>
+    <div>
+      <b><label for="foto">Добавьте фото питомца</label></b>
+      <input type="file" id="foto">
+    </div> <br>
+    <div>
+      <label for="button"></label>
+      <input type="submit" id="button" value="Отправить" />
+    </div> <br>
+  </form>
+</body>
+
+</html>
