@@ -1,0 +1,53 @@
+.sky-section {
+  height: 1440px;
+  width: 372px;
+  background-image: url(../assets/img/sky.png);
+}
+
+.section-1 {
+}
+.wrapper {
+}
+.first-block {
+}
+.main-header {
+}
+.underheader {
+}
+/* #one-block.first-block .main-text {
+  color: green;
+}
+.first-block .main-text {
+  color: orange;
+} */
+.main-text {
+  color: blue;
+}
+.second-block {
+}
+.list-items {
+}
+.item {
+}
+.third-block {
+  width: 100%;
+  height: 100vh;
+  background-color: #d76fb8ba;
+  /* background-image: url(../assets/img/1kitty.jpg); */
+  /* background-image: none; */
+  /* background-image: linear-gradient(rgb(227, 4, 149), yellow, rgb(0, 80, 78)); */
+  /* background-repeat: repeat-x; */
+  /* background-repeat: repeat-y; */
+  /* background-repeat: no-repeat; */
+  /* background-size: 200px 250px; */
+  /* background-size: contain; */
+  /* background-size: cover; */
+  /* background-position: top right; */
+  /* background-position: bottom left; */
+  /* background-position: center center; */
+  /* background-position: bottom 100px center; */
+  /* background-position: bottom 100px right 30px; */
+  /* background-position: 20px 50px; */
+  /* background-position: 20% 50%;  Слева от картинки 15% свободного места, а справа — оставшиеся 85%.
+Над картинкой 5% свободного места, а под ней — оставшиеся 95%. */
+}
