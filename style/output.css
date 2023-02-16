@@ -1,0 +1,39 @@
+body {
+  background-color: #fbd668;
+}
+body header {
+  color: #ab0075;
+}
+
+.navigation-list {
+  margin: 0;
+  padding: 0;
+  background-color: #b07ba5;
+  width: 62.5%;
+}
+.navigation-list__item, .hello-items__item {
+  list-style-type: disc;
+  text-decoration: line-through;
+  font-size: 20px;
+}
+
+.hello {
+  background-color: #6b3661;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hello-items__item {
+  font-weight: 700;
+  color: #fff;
+}
+
+html,
+body,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+/*# sourceMappingURL=output.css.map */
