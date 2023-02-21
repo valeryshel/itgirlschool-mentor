@@ -14,18 +14,25 @@
 }
 .underheader {
 }
-/* #one-block.first-block .main-text {
+#one-block.first-block .main-text {
   color: green;
 }
 .first-block .main-text {
   color: orange;
-} */
+}
 .main-text {
   color: blue;
 }
 .second-block {
+  width: 400px;
+  background-color: pink;
+  background-image: url(../assets/img/1kitty.jpg);
+  background-repeat: no-repeat;
+  font-style: italic;
+  font-size: 20px;
 }
 .list-items {
+  /* background-image: url(../assets/img/1kitty.jpg); */
 }
 .item {
 }
