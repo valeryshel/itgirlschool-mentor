@@ -30,3 +30,11 @@ function onSearch() {
     })
     .catch((error) => console.log(error));
 }
+
+console.log(testVar);
+var testVar;
+// testVar = "test var";
+
+console.log(testLet);
+let testLet;
+// testLet = "test let";

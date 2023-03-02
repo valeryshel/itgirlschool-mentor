@@ -10,6 +10,7 @@
     body {
       display: grid;
       grid-template-columns: 1fr 3fr;
+      gap: 10px;
       grid-template-rows: 10% 1fr 10%;
       height: 90vh;
       grid-template-areas: "header header header header"
@@ -20,6 +21,11 @@
     header {
       background-color: #eafca8;
       grid-area: header;
+      font-size: 20px;
+    }
+
+    header p {
+      font-size: 2em;
     }
 
     aside {
@@ -41,7 +47,9 @@
 </head>
 
 <body>
-  <header>header</header>
+  <header>header
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, praesentium?</p>
+  </header>
   <aside>Sidebar</aside>
   <main>Content</main>
   <footer>Footer</footer>
