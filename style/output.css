@@ -1,5 +1,5 @@
 body {
-  background-color: #fbd668;
+  background-color: #7f84d8;
 }
 body header {
   color: #ab0075;
@@ -19,9 +19,6 @@ body header {
 
 .hello {
   background-color: #6b3661;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .hello-items__item {
   font-weight: 700;
