@@ -6,6 +6,10 @@
 
 .section-1 {
 }
+.section-2 {
+  display: block;
+  height: 100px;
+}
 .wrapper {
 }
 .first-block {
