@@ -5,6 +5,7 @@
 }
 
 .section-1 {
+  display: flex;
 }
 .section-2 {
   display: block;
