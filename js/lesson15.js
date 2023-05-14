@@ -1,7 +1,8 @@
-console.log("hello again JavaScript!");
-
 //! область видимости
-
+//* глобальная область видимости
+let globalVariable = "global variable";
+// window.globalVariable
+//* блочная область видимости - разница между VAR и LET
 //console.log(aaa); // ошибка
 {
   let aaa = 123;
@@ -9,26 +10,36 @@ console.log("hello again JavaScript!");
 }
 // console.log(aaa); // ошибка
 
-console.log(bbb); // undefined
+//console.log(bbb); // undefined
 {
   var bbb = 234;
   // console.log(bbb); //234
 }
 // console.log(bbb); // 234
-
+// window.bbb
 if (bbb == 234) {
   var ccc = 111;
   // console.log(ccc); //111
 }
 // console.log(ccc); //111
 
-let array = [1, 2, 3];
+//ЦИКЛЫ
+var array = [1, 2, 3];
 for (var index = 0; index < array.length; index++) {
   console.log(index);
+  var varInsideCycle = "insideCycle";
 }
-console.log(index);
-// console.log(element);
+console.log(varInsideCycle);
 
+let array2 = [0, 1, 2];
+for (let index = 0; index < array.length; index++) {
+  console.log(index);
+  let letInsideCycle = "insideCycle";
+}
+//console.log(letInsideCycle);
+
+//* функциональная область видимости
+console.warn("FUNCTION + VAR");
 // создаем функцию с var
 let varFunction = function () {
   var qqq = 444;
@@ -38,6 +49,7 @@ varFunction(); // вызываем функцию
 //console.log(qqq); // выдаст ошибку, т.к. var внутри функции
 
 //! hoisting - поднятие переменных
+console.warn("hoisting");
 console.log(d); // var поднимается
 var d; // var объявлена, но не назначена
 // console.log(e); // let не поднимается
