@@ -1,9 +1,11 @@
 console.log("hello again JavaScript!");
 
 //! область видимости
-// console.log(aaa); // ошибка
+
+//console.log(aaa); // ошибка
 {
-  //console.log(aaa); // 123
+  let aaa = 123;
+  // console.log(aaa); // 123
 }
 // console.log(aaa); // ошибка
 
