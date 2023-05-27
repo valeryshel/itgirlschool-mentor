@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events, string, Math, RegExp</title>
+</head>
+<style>
+  body {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  div {
+    height: 100px;
+    width: 150px;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .div-1 {
+    background-color: #b38f8f;
+  }
+
+  .div-2 {
+    background-color: #897c9e;
+  }
+
+  .div-3 {
+    background-color: #6a785f;
+  }
+
+  .div-4 {
+    background-color: #56638a;
+  }
+
+  .div-5 {
+    background-color: #93984a;
+  }
+
+  .div-6 {
+    background-color: #bc9521;
+  }
+
+  .div-7 {
+    background-color: #483464;
+  }
+
+  .div-8 {
+    background-color: #3b7042;
+  }
+
+  .div-9 {
+    background-color: #3c0e3c;
+    width: 150px;
+    height: 150px;
+    flex-basis: 100%;
+  }
+</style>
+
+<body>
+  <div class="div-1">1</div>
+  <div class="div-2">2</div>
+  <div class="div-3">3</div>
+  <div class="div-4" onclick="clickFuncHTML()">4</div>
+  <div class="div-5">5</div>
+  <div class="div-6">6</div>
+  <div class="div-7">7</div>
+  <div class="div-8">8</div>
+  <div class="div-9" onclick="alert('div-9-parent')">
+    <div class="div-9-child" onclick="alert('div-9-child')">
+      <p class="div-9-child-text" onclick="alert('div-9-child-textform')">9</p>
+    </div>
+  </div>
+
+
+  <script>
+    const divElement1 = document.querySelector('.div-1');
+    const divElement2 = document.querySelector('.div-2');
+    const divElement3 = document.querySelector('.div-3');
+    const divElement4 = document.querySelector('.div-4');
+    const divElement5 = document.querySelector('.div-5');
+    const divElement6 = document.querySelector('.div-6');
+    const divElement7 = document.querySelector('.div-7');
+    const divElement8 = document.querySelector('.div-8');
+    // addEventListener
+    divElement1.addEventListener('click', () => { divElement1.innerHTML = "CLICK1" })
+    // on - method
+    divElement2.onclick = () => { divElement2.innerHTML = "CLICK2" }
+    // присавиваем функцию (без кавычек)
+    divElement3.onclick = clickFunc;
+    function clickFunc() {
+      divElement3.innerHTML = "CLICK3";
+      console.log('div3');
+    }
+    //функция, которую мы вызываем в HTML
+    let clickFuncHTML = () => {
+      divElement4.innerHTML = "CLICK4";
+      console.log('div4');
+    }
+
+    // Options - remove event listener
+    divElement5.addEventListener('click', () => {
+      divElement5.innerHTML = "CLICK5";
+      console.log('div5');
+    }, { once: true })
+
+
+    // No Options - remove event listener - НЕ СРАБОТАЕТ
+    divElement6.addEventListener('mousemove', () => {
+      divElement6.innerHTML = "move6";
+      console.log('div6');
+    })
+    divElement7.addEventListener('click', () => {
+      divElement6.removeEventListener('mousemove', () => {
+        divElement6.innerHTML = "move6";
+        console.log('div6remove');
+      })
+    })
+    // No Options - remove event listener - ТЕПЕРЬ СРАБОТАЕТ
+    // let moveFunc7 = () => {
+    //   divElement7.innerHTML = "move7";
+    //   console.log('div7');
+    // }
+    // divElement7.addEventListener('mousemove', moveFunc7)
+    // divElement8.addEventListener('click', () => {
+    //   divElement7.removeEventListener('mousemove', moveFunc7)
+    // })
+
+
+    //
+
+  </script>
+</body>
+
+</html>
