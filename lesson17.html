@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Events, string, Math, RegExp</title>
+  <title>Events</title>
 </head>
 <style>
   body {
@@ -62,6 +62,26 @@
     height: 150px;
     flex-basis: 100%;
   }
+
+  .div-9-child {
+    background-color: #362b3a;
+    width: 100px;
+
+    height: 100px;
+  }
+
+  .div-10 {
+    width: 150px;
+    height: 150px;
+    flex-basis: 100%;
+    background-color: #b38f8f;
+  }
+
+  .div-10-child {
+    width: 100px;
+    height: 100px;
+    background-color: #824949;
+  }
 </style>
 
 <body>
@@ -75,7 +95,12 @@
   <div class="div-8">8</div>
   <div class="div-9" onclick="alert('div-9-parent')">
     <div class="div-9-child" onclick="alert('div-9-child')">
-      <p class="div-9-child-text" onclick="alert('div-9-child-textform')">9</p>
+      <p class="div-9-child-text" onclick="alert('div-9-child-text')">9</p>
+    </div>
+  </div>
+  <div class="div-10">
+    <div class="div-10-child">
+      <p class="div-10-child-text">10</p>
     </div>
   </div>
 
@@ -113,16 +138,16 @@
 
 
     // No Options - remove event listener - НЕ СРАБОТАЕТ
-    divElement6.addEventListener('mousemove', () => {
-      divElement6.innerHTML = "move6";
-      console.log('div6');
-    })
-    divElement7.addEventListener('click', () => {
-      divElement6.removeEventListener('mousemove', () => {
-        divElement6.innerHTML = "move6";
-        console.log('div6remove');
-      })
-    })
+    // divElement6.addEventListener('mousemove', () => {
+    //   divElement6.innerHTML = "move6";
+    //   console.log('div6');
+    // })
+    // divElement7.addEventListener('click', () => {
+    //   divElement6.removeEventListener('mousemove', () => {
+    //     divElement6.innerHTML = "move6";
+    //     console.log('div6remove');
+    //   })
+    // })
     // No Options - remove event listener - ТЕПЕРЬ СРАБОТАЕТ
     // let moveFunc7 = () => {
     //   divElement7.innerHTML = "move7";
@@ -135,6 +160,14 @@
 
 
     //
+
+    const div10 = document.querySelector('.div-10')
+    const div10Child = document.querySelector('.div-10-child')
+    const div10ChildText = document.querySelector('.div-10-child-text')
+
+    div10.addEventListener('click', e => alert(`Погружение: ${div10.className}`), { capture: true })
+    div10Child.addEventListener('click', e => alert(`Погружение: ${div10Child.className}`), true)
+    div10ChildText.addEventListener('click', e => alert(`Погружение: ${div10ChildText.className}`), true)
 
   </script>
 </body>

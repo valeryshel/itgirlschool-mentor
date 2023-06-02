@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Массив -Array Упорядоченная коллекция данных</title>
+</head>
+
+<body>
+  <h1>Массив -Array Упорядоченная коллекция данных</h1>
+  - добавить б убрать
+  - методы мыссивов - пуп поп шифт аншифт
+  map filter reduce
+  forEach
+  рест и спред операторы
+
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+
+  <script>
+
+    // создание массива
+    let arr0 = 1
+    let arr = [];
+    console.log(arr);
+    let arr2 = new Array();
+    console.log(arr2);
+    let arr3 = Array.of(1, 2, 3, 'hello', 'hola', 'nihao')
+    console.log(arr3);
+    let arr4 = Array(6).fill(1)
+    console.log(arr4);
+
+    //проверка - это массив?
+    console.log(Array.isArray(arr));//true
+    console.log(Array.isArray(arr0));//false
+    console.log(typeof (arr));
+
+    // какие массивы бывают
+    const arrString = ['alfa', 'beta', 'gamma', 'omega', 'tilda', 'figma']
+    const arrNumbers = [1, 2, 3, 4, 5, 6, 7]
+    const arrDifferentTypes = [NaN, '2', { 'number': 3 }, 4n, true, null, undefined]
+    //многомерный массив
+    const arrOfArray = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    console.log(arrOfArray[1][1]);
+
+    // Длина массива
+    console.log(arrNumbers.length);
+    console.log(arrString.length);
+    // очистить массив – это arr.length = 0;.
+
+    // Чтение
+    let firstLetter = arrString[0]
+    console.log(firstLetter);
+    console.log(arrString[1]);
+    console.log(arrString[10]);
+
+    // Запись
+    console.log(arrString[5])// figma
+    // запись в ячейку с индексом 5:
+    arrString[5] = 'zeta'
+    console.log(arrString[5])
+    // запись в ячейку с индексом 7:
+    arrString[7] = 'theta'
+    console.log(arrString[7])
+    console.log(arrString);
+
+    //последний элемент массива
+    console.log(arrString[arrString.length - 1]);
+    //короткий синтаксис (новиночка):
+    console.log(arrString.at(-1));
+
+
+    // добавление элементов
+    const NAMES = ['Сережа', 'Лера', 'Ира', 'Костя', 'Алиса', 'Света']
+    console.log(NAMES);
+
+    //NAMES.push('Ольга') //для добавления в конец массива
+    //NAMES.push('Ольга','Иван','Даша') //для множества элементов добавления в конец массива
+    //NAMES.unshift('Дима') //для добавления в начало массива.
+
+    console.log(NAMES);
+
+    // удаление элементов
+    NAMES.pop() //для удаления из конца массива
+    NAMES.shift() //удаления из начала массива
+
+    console.log(NAMES);
+
+    // поиск по массиву
+
+    const episodesPerSeasons = [10, 10, 10, 10, 10, 9, 7, 6]
+    console.log(episodesPerSeasons);
+    console.log(episodesPerSeasons.includes(8))
+    // false
+    console.log(episodesPerSeasons.includes(6))
+    // true
+    console.log(episodesPerSeasons.indexOf(14));
+    // -1
+    console.log(episodesPerSeasons.indexOf(10));
+    // 0
+    console.log(episodesPerSeasons.lastIndexOf(10));
+    //4
+
+
+    const arrNumOld = [0, 1, 2, 3, 4, 5, 6, 7]
+
+    console.log(arrNumOld);
+    // console.log(arrNumOld.slice(2, 5)); //не изменяет массив, то есть нужно результат положить в новый массив
+    // console.log(arrNumOld);
+    // let arrNumNew = arrNumOld.slice(2, 5)
+    console.log(arrNumOld.splice(2, 5, 777, 777)); //начиная с 2 удаляет 5 элементов и добавляет 777 и  изменяя массив
+    console.log(arrNumOld);
+
+
+    //сложение массивов
+    let frstArray = [18, 28, 38, 48, 58]
+    let scndArray = [61, 62, 63, 64, 65]
+    let arrConcat = []
+    arrConcat = frstArray.concat(frstArray, scndArray)
+    console.log(arrConcat);
+
+
+
+  </script>
+</body>
+
+</html>
