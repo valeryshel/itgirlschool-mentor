@@ -124,6 +124,81 @@
     console.log(arrConcat);
 
 
+    // преобразование массива в строку
+    let arrStringNew = [123, 456, '678', 'kitty', 'doggy']
+    let newStringNew = arrStringNew.join(' ')
+    // let newStringNew = arrStringNew.join(', ')
+    console.log(newStringNew);
+    // преобразование строку в массив
+    let arrNewFromString = newStringNew.split(' ')
+    console.log(arrNewFromString);
+
+    // Сортировка массива
+    let newNames = NAMES.sort()
+    console.log(newNames);
+
+
+    let arrToSort = [1, 2, 3, 11, 12, 23, 24]
+    let arrSorted = arrToSort.sort()
+    console.log(arrSorted);
+
+    //сортировка массива как мы её преставляем
+
+    var numArray = [140000, 12, 104, 99];
+    numArray.sort(function (a, b) {
+      console.log(a);
+      console.log(b);
+      return a - b;
+    });
+    console.log(numArray);
+
+    // Преобразование массивов
+
+    // - `array.every(callback)` - возвращает `true`, если все элементы массива удовлетворяют условию, заданному в функции `callback`
+    let array1 = [1, 2, 3, 4, 5, 6, 7]
+
+    let array1new = array1.every((el) => el > 0)
+    console.log(array1new);
+    // или
+    console.log(array1.every((el) => el < 0));
+
+    // - `array.some(callback)` - возвращает `true`, если хотя бы один элемент массива удовлетворяет условию, заданному в функции `callback`
+    let array2 = [1, 2, 3, 4, 5, 6, 7]
+    let array2new = array2.some((el) => el > 3)
+    console.log(array2new);
+
+    // - `array.filter(callback)` - возвращает новый массив, содержащий все элементы, удовлетворяющие условию, заданному в функции `callback`
+    let array3 = [1, 2, 3, 4, 5, 6, 7]
+
+    let array3new = array3.filter(el => el > 3);
+    console.log(array3new);
+
+    // filter + string in array
+
+    const languages = ["Java", "TypeScript", "C#", "JavaScript", "Julia"]
+
+    const jLanguages = languages.filter(function (language) {
+      return language.startsWith("J")
+    })
+    console.log(jLanguages);
+
+    // - `array.map(callback)` - возвращает новый массив, содержащий результаты вызова функции `callback` для каждого элемента массива
+    let array4 = [1, 2, 3, 4, 5, 6, 7]
+
+    let array4new = array4.map(function (item) { //Берём каждый элемент массива
+      return item * 2; //умножаем каждый элемент на 2
+    });
+
+    console.log(array4new); //[0, 1, 4, 9, 16]
+
+
+    // - `array.reduce(callback)` - применяет функцию `callback` к каждому элементу массива для вычисления одного значения, которое возвращается в качестве результата
+    let array5 = [1, 2, 3, 4, 5, 6, 7]
+    // - `array.reduceRight(callback)` - применяет функцию `callback` к каждому элементу массива, начиная с конца, для вычисления одного значения, которое возвращается в качестве результата
+    let array6 = [1, 2, 3, 4, 5, 6, 7]
+
+
+    // forEach - перебор массива - итерация массива
 
   </script>
 </body>
