@@ -5,15 +5,126 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Cycles</title>
 </head>
 
 <body>
 
-  map filter reduce
+  Reduce
   forEach
   рест и спред операторы
   ЦИКЛЫ
+  Set
+
+  <script>
+
+    //SET - множество уникальных значений
+
+    const uniqueIds = new Set()
+    // добавляем элементы в коллекцию
+    uniqueIds.add(123)
+    uniqueIds.add(456)
+    uniqueIds.add(111)
+    uniqueIds.add(123)
+
+    console.log(uniqueIds.size)
+    // 3
+
+
+    //проверяем наличие элемента в коллекции
+    console.log(uniqueIds.has(111))
+    // true
+    // удаляем элемент
+    uniqueIds.delete(111)
+    console.log(uniqueIds.size)
+    // 2
+    // проверяем коллекцию
+    uniqueIds.clear()
+    console.log(uniqueIds.size)
+    // 0
+
+    // Обход коллекции с .forEach()
+
+    const filled = new Set([1, 2, 3, 3, 3, 'hello'])
+
+    filled.forEach(function (value) {
+      console.log(value)
+    })
+
+    // 1
+    // 2
+    // 3
+    // 'hello'
+
+
+    // ДЛя чего применяется SET ?
+
+    const nonUnique = [1, 2, 3, 4, 5, 4, 5, 1, 1]
+    const uniqueValuesArr = [...new Set(nonUnique)]
+
+    console.log(uniqueValuesArr)
+    // [1, 2, 3, 4, 5]
+
+
+
+
+    // CYCLES - ЦИКЛЫ
+
+    //КЛАССИЧЕСКИЙ ЦИКЛ FOR
+    let step = 0;
+    for (step = 0; step < 5; step++) {        //Условие цикла
+      console.log('Идём 1 шаг на восток');    //Тело цикла
+      console.log(`Идём ${step + 1} шаг на восток`);    //Тело цикла
+      //Цикл запускается 5 раз, с шагом от 0 до 4
+    }
+
+
+    // ЦИКЛ ДЛЯ ПЕРЕБОРА КЛЮЧЕЙ И ЗНАЧЕНИЙ ОБЪЕКТА FOR...IN
+
+    const cat = {
+      name: 'Борис',
+      color: 'red',
+      age: 8
+    }
+
+    for (const key in cat) {
+      // console.log(`${key} - ${cat[key]}`)
+    }
+    // name - 'Борис',
+    // color - 'red',
+    // age - 8
+
+
+    // ЦИКЛ FOR...OF
+
+    for (const iterator of object) {
+
+    }
+
+
+    // ЦИКЛ DO WHILE
+
+    do {
+      i += 1;
+      console.log(i);
+    } while (i < 5);
+    //выражения выполняются, пока условие истинно.
+    //цикл do выполнится минимум 1 раз и запустится снова, пока i меньше 5.:
+
+    // ЦИКЛ WHILE
+    let n = 0;
+    let x = 0;
+    while (n < 3) {
+      n++;
+      x += n;
+    }
+
+// С каждой итерацией цикл увеличивает n и добавляет это значение к x. Поэтому x и n получают следующие значения:
+// После первого прохода: n= 1 иx= 1
+// После второго:n= 2 иx= 3
+// После третьего прохода:n= 3 иx= 6
+
+  </script>
 </body>
 
 </html>

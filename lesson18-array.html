@@ -47,7 +47,7 @@
     // console.log(arr4);
 
     //проверка - это массив?
-    // console.log(Array.isArray(arr));//true
+    //console.log(Array.isArray(arr));//true
     // console.log(Array.isArray(arr0));//false
     // console.log(typeof (arr));
 
@@ -62,6 +62,7 @@
     // Длина массива
     // console.log(arrNumbers.length);
     // console.log(arrString.length);
+    // console.log(arrNumbers.length = 0);
     // очистить массив – это arr.length = 0;.
 
     // Чтение
@@ -71,14 +72,16 @@
     // console.log(arrString[10]);
 
     // Запись
+    //console.log(arrString);
     // console.log(arrString[5])// figma
     // запись в ячейку с индексом 5:
     arrString[5] = 'zeta'
-    // console.log(arrString[5])
+    //console.log(arrString[5])
     // запись в ячейку с индексом 7:
     arrString[7] = 'theta'
     // console.log(arrString[7])
     // console.log(arrString);
+    // console.log(arrString[6]);
 
     //последний элемент массива
     // console.log(arrString[arrString.length - 1]);
@@ -91,14 +94,14 @@
     // console.log(NAMES);
 
     //NAMES.push('Ольга') //для добавления в конец массива
-    //NAMES.push('Ольга','Иван','Даша') //для множества элементов добавления в конец массива
+    //NAMES.push('Ольга', 'Иван', 'Даша') //для множества элементов добавления в конец массива
     //NAMES.unshift('Дима') //для добавления в начало массива.
 
     // console.log(NAMES);
 
     // удаление элементов
-    NAMES.pop() //для удаления из конца массива
-    NAMES.shift() //удаления из начала массива
+    //NAMES.pop() //для удаления из конца массива
+    //NAMES.shift() //удаления из начала массива
 
     // console.log(NAMES);
 
@@ -106,7 +109,7 @@
 
     const episodesPerSeasons = [10, 10, 10, 10, 10, 9, 7, 6]
     // console.log(episodesPerSeasons);
-    // console.log(episodesPerSeasons.includes(8))
+    //console.log(episodesPerSeasons.includes(8))
     // false
     // console.log(episodesPerSeasons.includes(6))
     // true
@@ -121,18 +124,20 @@
     const arrNumOld = [0, 1, 2, 3, 4, 5, 6, 7]
 
     // console.log(arrNumOld);
-    // console.log(arrNumOld.slice(2, 5)); //не изменяет массив, то есть нужно результат положить в новый массив
+    //console.log(arrNumOld.slice(2, 5)); //не изменяет массив, то есть нужно результат положить в новый массив
     // console.log(arrNumOld);
     // let arrNumNew = arrNumOld.slice(2, 5)
     // console.log(arrNumOld.splice(2, 5, 777, 777)); //начиная с 2 удаляет 5 элементов и добавляет 777 и  изменяя массив
     // console.log(arrNumOld);
+    // console.log(arrNumNew);
 
 
     //сложение массивов
     let frstArray = [18, 28, 38, 48, 58]
     let scndArray = [61, 62, 63, 64, 65]
     let arrConcat = []
-    arrConcat = frstArray.concat(frstArray, scndArray)
+    // arrConcat = arrConcat.concat(frstArray, scndArray)
+    arrConcat = frstArray.concat(scndArray, frstArray)
     // console.log(arrConcat);
 
 
@@ -140,6 +145,7 @@
     let arrStringNew = [123, 456, '678', 'kitty', 'doggy']
     let newStringNew = arrStringNew.join(' ')
     // let newStringNew = arrStringNew.join(', ')
+    // let newStringNew = arrStringNew.join('qqqq ')
     // console.log(newStringNew);
     // преобразование строку в массив
     let arrNewFromString = newStringNew.split(' ')
@@ -148,6 +154,9 @@
     // Развернуть массив
     let arrToReverse = [1, 2, 3, 4]
     // console.log(arrToReverse.reverse());
+
+    let arrString2 = 'Anna Vika Lyuba irina Lera'
+    // console.log(arrString2.split(' ').reverse().join(', '));
 
     // Сортировка массива
     let newNames = NAMES.sort()
@@ -160,11 +169,11 @@
 
     //сортировка массива как мы её преставляем от маленького к большому
 
-    var numArray = [140000, 12, 104, 99];
+    var numArray = [140000, 12, 104, 99, 120, 11, 9];
     numArray.sort(function (a, b) {
       // console.log(a);
       // console.log(b);
-      return a - b;
+      return b - a;
     });
     // console.log(numArray);
     /* Если a меньше b, вернётся отрицательное число.
@@ -196,7 +205,7 @@
 
     // filter + string in array
 
-    const languages = ["Java", "TypeScript", "C#", "JavaScript", "Julia"]
+    const languages = ["Java", "TypeScript", "C#", "JavaScript", "Julia"];
 
     const jLanguages = languages.filter(function (language) {
       return language.startsWith("J")
@@ -210,7 +219,7 @@
       return item * 2; //умножаем каждый элемент на 2
     });
 
-    // console.log(array4new); //[0, 1, 4, 9, 16]
+    //console.log(array4new); //[0, 1, 4, 9, 16]
 
 
     // REDUCE & REDUCE RIGHT
@@ -238,7 +247,7 @@
     })
 
     function colorDark(color) {
-      // console.log('dark' + color);
+      // console.log('dark-' + color);
     }
 
     arrayForEach.forEach(colorDark)
@@ -254,7 +263,7 @@
     // Вернёмся к примеру с едой:
 
     const food = ['🍔', '🍟', '🍦']
-    // console.log(food);
+    console.log(food);
     food.forEach((item, index, arr) => {
       // console.log('Текущий элемент ' + item)
       // console.log('Его индекс ' + index)
@@ -264,7 +273,7 @@
 
     // .forEach ДЛЯ ПЕРЕБОРА КОЛЛЕКЦИЙ ЭЛЕМЕНТОВ
     const divCollection = document.querySelectorAll('div');
-    // console.log(divCollection);
+    console.log(divCollection);
 
     document.querySelector('button').addEventListener('click', () => {
       divCollection.forEach((div) => {
