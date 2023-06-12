@@ -47,7 +47,7 @@
     // console.log(arr4);
 
     //проверка - это массив?
-    //console.log(Array.isArray(arr));//true
+    console.log(Array.isArray(arr));//true
     // console.log(Array.isArray(arr0));//false
     // console.log(typeof (arr));
 
@@ -84,9 +84,9 @@
     // console.log(arrString[6]);
 
     //последний элемент массива
-    // console.log(arrString[arrString.length - 1]);
+    console.log(arrString[arrString.length - 1]);
     //короткий синтаксис (новиночка):
-    // console.log(arrString.at(-1));
+    console.log(arrString.at(-1));
 
 
     // добавление элементов
@@ -137,8 +137,10 @@
     let scndArray = [61, 62, 63, 64, 65]
     let arrConcat = []
     // arrConcat = arrConcat.concat(frstArray, scndArray)
-    arrConcat = frstArray.concat(scndArray, frstArray)
+    // arrConcat = frstArray.concat(scndArray, frstArray)
+    // frstArray = frstArray.concat(scndArray, frstArray)
     // console.log(arrConcat);
+    // console.log(frstArray);
 
 
     // преобразование массива в строку
@@ -156,7 +158,7 @@
     // console.log(arrToReverse.reverse());
 
     let arrString2 = 'Anna Vika Lyuba irina Lera'
-    // console.log(arrString2.split(' ').reverse().join(', '));
+    console.log(arrString2.split(' ').reverse().join(', '));
 
     // Сортировка массива
     let newNames = NAMES.sort()
@@ -169,13 +171,13 @@
 
     //сортировка массива как мы её преставляем от маленького к большому
 
-    var numArray = [140000, 12, 104, 99, 120, 11, 9];
+    var numArray = [140000, -12, 104, -99, 120, 11, 9];
     numArray.sort(function (a, b) {
       // console.log(a);
       // console.log(b);
-      return b - a;
+      return a - b;
     });
-    // console.log(numArray);
+    console.log(numArray);
     /* Если a меньше b, вернётся отрицательное число.
 Это значит, что a должно расположиться в итоговом массиве
 раньше, b — позже. Например:
@@ -225,16 +227,20 @@
     // REDUCE & REDUCE RIGHT
 
     // - `array.reduce(callback)` - применяет функцию `callback` к каждому элементу массива для вычисления одного значения, которое возвращается в качестве результата
-    let array5 = [2, 2, 2]
+    let array5 = [2, 3, 2, 4]
     let array5new = array5.reduce((el) => {
+      console.log(el);
+      console.log(el ** 3);
       return el ** 3
     })
-    // console.log(array5new);
+    console.log(array5new);
 
     // - `array.reduceRight(callback)` - применяет функцию `callback` к каждому элементу массива, начиная с конца, для вычисления одного значения, которое возвращается в качестве результата
-    let array6 = [3, 2, 1]
+    let array6 = [3, 2, 2]
 
     let array6new = array6.reduceRight((el) => {
+      // console.log(el);
+      // console.log(el ** 3);
       return el ** 3
     })
     // console.log(array6new);
