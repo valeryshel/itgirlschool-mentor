@@ -5,13 +5,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lesson 20 - Conceptions</title>
+  <title>Lesson 20</title>
 </head>
 
 <body>
-  - webpack
-  - gulp
-  - grunt
+
   <script>
 
     // - Хранение по ссылке и по значению
@@ -25,7 +23,7 @@
     // console.log(b);
     // console.log(a === b); //true - Когда мы сравниваем два значения, то у нас по сути произойдёт побайтовое сравнение этих величин.
 
-    a = 'Привет, Мир';
+    a = 'Привет, Мир!';
 
     // console.log(a, b);
 
@@ -58,8 +56,10 @@
       name: 'Фрося',
       age: 3
     }
+    // console.log(cat);
 
     let kitty = cat;
+    // console.log(kitty);
 
     kitty.name = 'Фантик'
 
@@ -71,6 +71,7 @@
 
     let user = { name: 'Анна', age: 21 }
     const admin = user
+    // console.log(user, admin);
 
     // Переопределение никак не повлияет на admin, потому что мы создали новый объект и разорвали предыдущую ссылку связь
     user = { name: 'Иван' }
@@ -136,6 +137,9 @@
 
     // console.log(student, studentCopy);
 
+    studentCopy.age = '22'
+
+    // console.log(student, studentCopy);
 
     ////// Если каждый раз создавать объект, когда мы вносим изменения, то такие объекты называют иммутабельными (immutable) или неизменяемыми.
 
@@ -228,9 +232,9 @@
     // 3.При создании объекта с помощью литерала {}
     // У объекта скопировать свойства из другого объекта в новый:
 
-    const persona = { name: 'Иван', lastName: 'Объектов' }
+    // const persona = { name: 'Иван', lastName: 'Объектов' }
     // const userData = Object.assign({ username: 'killer3000' }, persona)
-    const userData = { ...persona, username: 'killer3000' }
+    // const userData = { ...persona, username: 'killer3000' }
 
     // console.log(userData)
 
@@ -241,7 +245,7 @@
     // }
 
     // Если свойства в новом и старом объекте совпадают, то будет использоваться значение свойства, которое шло последним:
-    //     const persona = { name: 'Иван', lastName: 'Объектов' }
+    // const persona = { name: 'Иван', lastName: 'Объектов' }
     // const userData = { name: 'Николай', ...persona }
 
     // console.log(userData)
@@ -254,15 +258,43 @@
     // const userData = { ...person, name: 'Николай' }
 
     // console.log(userData)
-// { name: 'Николай', lastName: 'Объектов' }
+    // { name: 'Николай', lastName: 'Объектов' }
 
 
 
 
-    // Концепия JavaScript
 
-    // console.log(console)
 
+    // Оператор ?? (nullish coalescing operator) позволяет проверить значение на null и undefined. Он принимает два операнда:
+
+    // левый_операнд ?? правый_операнд
+
+    // Оператор возвращает значение левого операнда, если оно НЕ равно null и undefined.Иначе возвращается значение правого операнда.Например:
+
+
+
+    const result1 = "hello" ?? "world";
+    console.log(result1);   // hello
+
+    const result2 = 0 ?? 5;
+    console.log(result2);   // 0
+
+    const result3 = "" ?? "javascript";
+    console.log(result3);   // "" - пустая строка
+
+    const result4 = false ?? true;
+    console.log(result4);   // false
+
+    const result5 = null ?? "not null";
+    console.log(result5);   // not null
+
+    const result6 = undefined ?? "defined";
+    console.log(result6);   // defined
+
+    let message = null;
+    const hello = "Hi JavaScript";
+    const result7 = message ?? hello;
+    console.log(result7);   // Hi JavaScript
 
   </script>
 </body>
