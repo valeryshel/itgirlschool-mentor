@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 22 - Collections</title>
+</head>
+
+<body>
+  <h1>Collections</h1>
+
+  <ul class="books">
+    <li class="book book--one">Война и Мир</li>
+    <li class="book book--two">Анна Каренина</li>
+    <li class="book book--three">Филипок</li>
+  </ul>
+
+  <ul class="books-2">
+    <li class="book-2 book--one">Война и Мир</li>
+    <li class="book-2 book--two">Анна Каренина</li>
+    <li class="book-2 book--three">Филипок</li>
+  </ul>
+  <script>
+    let booksList = document.querySelector('.books');
+    let liveBooks = booksList.children;
+
+    // Выведем все дочерние элементы списка .books
+    console.log(liveBooks);
+    let notLiveBooks = document.querySelectorAll('.book-2');
+
+    // Выведем коллекцию, содержащую все элементы с классом book
+    console.log(notLiveBooks);
+
+
+
+
+    // Удалим первую книгу
+    liveBooks[0].remove();
+    // Получим 2
+    console.log(liveBooks.length);
+    // Получим элемент book--two, который теперь стал первым в коллекции
+    console.log(liveBooks[0]);
+
+
+
+
+    // Удалим первую книгу
+    notLiveBooks[0].remove();
+    // Получим 3
+    console.log(notLiveBooks.length);
+    // Получим ссылку на удалённый элемент book--one
+    console.log(notLiveBooks[0]);
+  </script>
+</body>
+
+</html>

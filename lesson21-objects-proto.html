@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lesson 20 - Conceptions</title>
+  <title>Lesson 21 - OBJECTS</title>
 </head>
 
 <body>
@@ -27,15 +27,15 @@
       },
     }
 
-    // console.log(cat.meow());
+    // console.log(cat.meow);
     // console.log(cat);
 
     // Добавить свойство
-    cat.name = 'Simon'
-    cat.gender = 'male'
-    cat.color = 'brown'
-    cat.age = 2
-    cat.adorable = true
+    // cat.name = 'Simon'
+    // cat.gender = 'male'
+    // cat.color = 'brown'
+    // cat.age = 2
+    // cat.adorable = true
 
     // console.log(cat);
 
@@ -43,11 +43,15 @@
 
     const book = new Object({ title: 'Война и мир', author: 'Лев Толстой' })
 
+    // console.log(book);
+
 
     // Чтение свойств
     // console.log(`На полке стоит «${book.title}»`)
     // console.log(`На полке стоит «${book['title']}»`)
     // На полке стоит «Война и мир»
+
+    book.pages = 1200;
 
     const pagesPerDay = book.pages / 365
     const pagesPerDay2 = book['pages'] / 365
@@ -70,11 +74,11 @@
 
     // добавляем новое свойство
     book2.author = 'А.С.Пушкин'
-    book2['author'] = 'А.С.Пушкин'
+    book2['author name'] = 'А.С.Пушкин'
 
     // изменяем существующее
     book2.title = 'Сказка о царе Салтане'
-    book2['title'] = 'Сказка о царе Салтане'
+    book2['title of book'] = 'Сказка о царе Салтане'
 
     // console.log(book2)
     // { title: 'Сказка о царе Салтане', author: 'А.С.Пушкин'}
@@ -111,11 +115,11 @@
 
     //!!!!! Если ключ содержит пробел, то обращаться к нему возможно только через синтаксис квадратных скобок:
 
-    // const obj = {
-    //   'the answer': 42
-    // }
+    const obj1 = {
+      'the answer': 42
+    }
 
-    // console.log(obj['the answer'])
+    // console.log(obj1['the answer'])
     // 42
 
 
@@ -137,19 +141,22 @@
     // true  //почему ?
 
     // КОРОТКИЙ СИНТАКСИС ОБЪЕКТОВ!!!!!!!!!!!!!!!!!!!
-
     const kotiko = {
       name: 'Том',
       meow2: function () {
         // console.log('мяу мяу')
       },
       meow3() {
-        // console.log('мяу мяу мяу')
+        console.log('мяу мяу мяу')
       },
     }
 
-    // const firstName = 'Иван'
-    // const username = 'Killer3000'
+    // console.log(kotiko.meow3());
+    // kotiko.meow3();
+
+
+    const firstName = 'Иван'
+    const username = 'Vanechka'
 
     // const user = {
     //   firstName: firstName,
@@ -157,18 +164,18 @@
     // }
 
     // console.log(user)
-    // { firstName: 'Иван', username: 'Killer3000' }
+    // { firstName: 'Иван', username: 'Vanechka' }
 
     // const firstName = 'Иван'
-    // const username = 'Killer3000'
+    // const username = 'Vanechka'
 
-    // const user = {
-    //   firstName,
-    //   username
-    // }
+    const user = {
+      firstName,
+      username
+    }
 
     // console.log(user)
-    // { firstName: 'Иван', username: 'Killer3000' }
+    // { firstName: 'Иван', username: 'Vanechka' }
 
 
 
@@ -186,24 +193,22 @@
     // false
 
     for (const keys in userGirl) {
-
       const element = userGirl[keys];
       // console.log(element);
-
-
     }
 
     // Для копирования используется спред синтаксис
-
     const copyUserGirl = { ...userGirl }
     // console.log(copyUserGirl)
     // { firstName: 'Марина', username: 'Ryjaya Vedma'}
 
 
     let obj = { a: 1, b: 2, c: 3 };
+
     // console.log(Object.keys(obj)); // ['a', 'b', 'c']
     // console.log(Object.values(obj)); // [1, 2, 3]
     // console.log(Object.entries(obj)); // [['a', 1], ['b', 2], ['c', 3]]
+
     // console.log(obj.hasOwnProperty('a')); // true
     // console.log(obj.hasOwnProperty('d')); // false
 
@@ -213,17 +218,17 @@
     const webLady = { name: 'Lyuba', level: 'Junior' }
 
     webLady.mainLanguage = 'JavaScript'
-    delete webLady.level
+    // delete webLady.level
 
     // console.dir(webLady)
 
     // ARRAY
     const shows = ['Breakind Bad', 'The Office', 'Silicon Valley']
 
-    console.log(shows.length); // свойство массива
+    // console.log(shows.length); // свойство массива
 
     shows[1] // получить элемент массива, аналогично как у объекта shows['1']
-    console.dir(shows);
+    // console.dir(shows);
 
     //FUNCTIONS
     function sum(a, b) {
@@ -232,9 +237,9 @@
 
     sum.arguments // можно вызвать свойство функции
     sum.someField = 'value' // можно присвоить значение в поле
-    // sum.randomField = 'random' // можно присвоить значение в поле
+    sum.randomField = 'random' // можно присвоить значение в поле
 
-    //console.dir(sum) //проверяем proto
+    // console.dir(sum) //проверяем proto
 
 
     // STRING
@@ -243,13 +248,14 @@
     // console.log(typeof name);
 
     let herName = String('Nicole')
-    let yourName = 'Nicole'
 
+    // console.log(name == yourName);
     // console.log(name === yourName); //false!
     // console.log(name.age = 17);
     // console.log(name);//добавился возраст
 
 
+    let yourName = 'Nicole';
     // console.log(yourName);
     // console.log(yourName.toUpperCase());
     // console.log(yourName.charAt(1));
@@ -258,8 +264,6 @@
     // console.log(yourName[0] = 'V');
     // console.log(yourName[0]);
     // console.log(yourName);//примитивы неизменяемые - иммутабельны!
-
-
 
 
     // NUMBER
@@ -274,6 +278,7 @@
 
 
     // Методы у примитивов
+
     // console.log(true.toString());
     // 'true'
 
@@ -305,7 +310,7 @@
     // ФЛАГИ и ДЕСКРИПТОРЫ свойств объектов
 
     const ANNA = {
-      name: 'Anna',
+      // name: 'Anna',
       age: 30,
       occupation: 'Weather Podcaster'
     }
@@ -334,7 +339,7 @@
       configurable: true
     })
 
-    ANNA.os = 'Windows';
+    // ANNA.os = 'Windows';
 
     // console.log(ANNA);
 
@@ -352,8 +357,8 @@
 
 
     for (const key in ANNA) {
-      // console.log(key);
-      // console.log(ANNA[key]);
+      console.log(key);
+      console.log(ANNA[key]);
     }
 
     // Неконфигурируемое свойство
@@ -366,7 +371,7 @@
       enumerable: true
     })
 
-    delete ANNA.processor
+    // delete ANNA.processor
 
     // console.log(ANNA);
 
@@ -376,6 +381,8 @@
     //   configurable: true, // разрешаем переконфигурирование!
     //   enumerable: true
     // })
+
+    // console.log(ANNA);
 
     // ПОЛУЧЕНИЕ ВСЕХ СВОЙСТВ И ИХ ДЕСКРИПТОРОВ
     const allPropertyDescriptors = Object.getOwnPropertyDescriptors(ANNA)
