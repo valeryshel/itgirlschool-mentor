@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 23 - OOP</title>
+</head>
+
+<body>
+  <h1>OOP</h1>
+
+
+
+  <script>
+    // Обычный объект
+    const book = new Object({ title: 'Война и мир', author: 'Лев Толстой' });
+
+    const cat = {
+      name: "Максик",
+      kittens: ['Беляш', 'Михаил', 'Чарли'],
+      favoriteToy: {
+        name: 'мячик',
+        size: 'маленький',
+      },
+      age: 10,
+      meow: function () {
+        console.log('мяу мяу')
+      },
+    }
+
+    let human = {
+      name: 'Lera',
+      lastName: 'Suvorova',
+      sayMyName() { //короткий синтаксис
+        return (`My name is ${this.name} ${this.lastName}`);
+      }
+    }
+    // console.log(human);
+    // console.log(typeof human);
+    // console.log(human.sayMyName());
+
+    //-----------------------------------------------------
+    // Функция-конструктор (constructor function)
+
+    // const anna = new Human1('Anna', 'Korolkova')
+    // console.log(anna);
+    // console.log(anna.firstName) // Anna
+    // console.log(anna.lastName) // Korolkova
+
+    function Human1(firstName, lastName) {
+      // Определяем свойства
+      this.firstName = firstName
+      this.lastname = lastName
+
+      this.sayHello = function () {
+        // console.log(`Hello, I'm ${firstName}`)
+      }
+    }
+    //Для добавления свойства или метода в прототип используют prototype. Это позволяет всем экземплярам использовать одну функцию
+    Human1.prototype.sayMyName = function () {
+      return (`My name is ${this.name} ${this.lastName}`)
+    }
+
+
+
+    // Поднятие!
+
+    const lera = new Human1('Lera', 'Suvorova')
+    console.log('Human1', typeof Human1);
+    console.log('Human1', typeof lera);
+    // console.log(lera);
+    //-----------------------------------------------------
+    // Класс (class) - ES6 - class и синтаксический сахар
+
+    class Human2 {
+      constructor(firstName, lastName) {
+        this.firstName = firstName
+        this.lastName = lastName
+
+        this.sayHello = function () {
+          // console.log(`Hello, I'm ${firstName}`)
+        }
+      }
+
+      sayMyName() { //короткий синтаксис
+        return (`My name is ${this.name} ${this.lastName}`);
+      }
+    }
+
+    const christina = new Human2('Christina', 'Korneva')
+    console.log('Human2', typeof Human2);
+    console.log('Human2', typeof christina);
+    // console.log(christina);
+
+    // ПОДНЯТИЕ !!!
+
+    //-----------------------------------------------------
+    // Связывание объектов (object linking to other object, OLOO)
+
+    const Human3 = {
+      init(firstName, lastName) { //не обязательно init! а в классе обязательно constructor
+        this.firstName = firstName
+        this.lastName = lastName
+
+        this.sayHello = function () {
+          console.log(`Hello, I'm ${firstName}`)
+        }
+
+        return this
+      }, //не забыть запятую
+
+
+      sayMyName() { //короткий синтаксис
+        return (`My name is ${this.name} ${this.lastName}`);
+      }
+    }
+    //Для создания экземпляра используется Object.create.
+    //После создания экземпляра вызывается init
+
+    const katya = Object.create(Human3)
+    katya.init('Katya', 'Moreva')
+    console.log('Human3', typeof Human3)
+    console.log('Human3', typeof katya)
+    // console.log(katya)
+
+    // Фабричная функция (factory function) - это функция, возвращающая объект, экземпляр класса или связывания объектов.
+
+    function Human4(firstName, lastName) {
+      return {
+        firstName,
+        lastName,
+        sayHello() {
+          // console.log(`Hello, I'm ${firstName}`)
+        }
+      }
+
+      //При использовании ФФ нельзя определять свойства прототипа!
+    }
+
+    // Для создания экземпляра мы вызываем функцию и нам не требуется ключевое слово NEW
+    const olga = Human4('Olga', 'Egorova')
+    console.log('Human4', typeof Human4)
+    console.log('Human4', typeof olga)
+    // console.log(olga)
+  </script>
+</body>
+
+</html>

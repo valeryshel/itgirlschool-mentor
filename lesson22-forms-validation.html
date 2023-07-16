@@ -21,9 +21,10 @@
 
   <form name="question" autocomplete="off" role="form" id="question">
     <h2>Форма про себя</h2>
-
-    <!-- <input form="question" tabindex="0" type="text" name="anketa" id="anketa" value="Значение только для чтения" placeholder="тут уже все заполнили за тебя" readonly> -->
-    <!-- <input form="question" tabindex="0" type="text" name="anketa" id="anketa" value="Значение только для чтения"
+    <!--
+    <input form="question" tabindex="0" type="text" name="anketa" id="anketa" value="Значение только для чтения"
+      placeholder="тут уже все заполнили за тебя" readonly>
+    <input form="question" tabindex="0" type="text" name="anketa" id="anketa" value="Значение только для чтения"
       placeholder="тут уже все заполнили за тебя" disabled> -->
 
     <input form="question" tabindex="0" type="text" name="name" id="name" value="Lera" placeholder="Как тебя зовут?"
@@ -37,7 +38,7 @@
     <select tabindex="4" form="question" name="hobby" id="hobby">
       <option value="Выбери хобби" hidden>Выбери хобби</option>
       <option value="рисование">Рисование</option>
-      <option value="пение" selected>Пение</option>
+      <option value="пение">Пение</option>
       <option value="вышивание" disabled>Вышивание</option>
     </select>
     <label>
@@ -50,12 +51,12 @@
   <script>
     // const questionForm = document.querySelector('#question')
     const qForm = document.forms.question;
-    console.log(qForm);
-    console.log(qForm.elements); // HTMLFormControlsCollection - в чем тут проблема?
-    console.log(qForm.elements.name);
-    console.log(qForm.elements.age);
-    console.log(qForm.elements.email);
-    console.log(qForm.elements.photo);
+    // console.log(qForm);
+    // console.log(qForm.elements); // HTMLFormControlsCollection - в чем тут проблема?
+    // console.log(qForm.elements.name);
+    // console.log(qForm.elements.age);
+    // console.log(qForm.elements.email);
+    // console.log(qForm.elements.photo);
 
 
 
@@ -90,13 +91,13 @@
 
 
     qForm.addEventListener('change', () => {
-      // console.log('it works in form');
+      console.log('it works in form');
       if (qForm.elements.email.getAttribute('type') == 'email') {
         let filterRefEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         if (!filterRefEmail.test(qForm.elements.email.value)) {
-          // console.log('error!');
+          console.log('error!');
         } else {
-          // console.log('no error');
+          console.log('no error');
         }
       }
     })
@@ -107,12 +108,12 @@
       evt.preventDefault();
       const formData = new FormData(qForm);
       formData.append("id", qForm.id);
-      console.log(formData.entries());
+
       for (let [key, value] of formData) {
         console.log(`${key} - ${value}`)
       }
       // formData.forEach(key => console.log(key))
-      console.log('It works');
+      // console.log('It works');
       //Обрабатываем форму
 
       // ОТПРАВКА СЕТЕВЫХ ЗАПРОСОВ НА СЕРВЕР
