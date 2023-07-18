@@ -15,7 +15,7 @@
   <script>
     // 'use strict'
 
-    //ПРОСТАЯ ФУНКЦИЯ
+    // ПРОСТАЯ ФУНКЦИЯ
     // function hello(who) {
     //   console.log(`Hello, ${who}!`)
     //   console.log(this); //Window
@@ -23,7 +23,7 @@
     // }
 
     // hello('World'); // Hello, World!
-    //=====================================================================================================
+    // =====================================================================================================
 
     // анонимная функция мгновенного вызова
     // ; (function () {
@@ -59,14 +59,14 @@
     // const greetOuter = user.greet //отвязали функцию от объекта - потеряли контекст!
     // greetOuter()  // Hello, my name is
 
-
+    // //1
     // let greeting = user.greet.bind(user) //привязали контекст
     // greeting() //Hello, my name is
-
+    // //2
     // user.greet.bind(elena)()
 
     //==========================================================================
-    // //непрямой вызов
+    //непрямой вызов
     // function greet2(greetWord, emoticon) {
     //   console.log(`${greetWord} ${this.name} ${emoticon}`)
     // }
@@ -94,8 +94,9 @@
     //   name: 'Victoria',
     // }
 
-    // let sayName = printName.bind(user1, 'My ', 'name is ') //мы хотим чтобы функция printName выполнялась в контексте user1
-    // sayName()
+    // // let sayName = printName.bind(user1, 'My ', 'name is ') //мы хотим чтобы функция printName выполнялась в контексте user1
+    // // sayName()
+    // console.log(typeof sayName);
     // let sayName = printName.bind(user1, 'My ') //мы хотим чтобы функция printName выполнялась в контексте user1
     // sayName('name is ')
 
@@ -113,12 +114,14 @@
     // }
     // const driveBike = auto.drive.bind(bike)
     // console.log(driveBike());
-    //
+
 
     //===========================================================================
     // const elem = document.querySelector.bind(document)
 
     // console.log(elem);
+    // console.log(typeof elem);
+    // console.log(typeof document.querySelector);
     // console.log(elem === document.querySelector);
 
     // const header = elem('h1')
@@ -131,39 +134,46 @@
     //   this.name = 'Diana'
     // }
 
-    // class Lady {
-    //   constructor(name) {
-    //     // При вызове сперва создаётся новый пустой объект, и он присваивается this.
-    //     // this = {};
-    //     this.name = name; //Выполняется код функции. Обычно он модифицирует this, добавляет туда новые свойства.
-    //     //return this  - Возвращается значение this.
-    //   }
-    //   wave() {
-    //     console.log(`${this.name} is waving her hand`);
-    //   }
-    //   wearingCrown() {
-    //     console.log(`${this.name} is wearing crown`);
-    //   }
-    // }
-    // const firstLady = new Lady('Princess Anna')
-    // // console.log(firstLady instanceof Lady);    // true
+    class Lady {
+      constructor(name) {
+        // При вызове сперва создаётся новый пустой объект, и он присваивается this.
+        // this = {};
+        this.name = name; //Выполняется код функции. Обычно он модифицирует this, добавляет туда новые свойства.
+        //return this  - Возвращается значение this.
+      }
+      wave() {
+        console.log(`${this.name} is waving her hand`);
+      }
+      wearingCrown() {
+        console.log(`${this.name} is wearing crown`);
+      }
+    }
 
-    // class Princess {
-    //   constructor(name, waving) {
-    //     this.name = name;
-    //     this.waving = waving;
-    //     this.princessGreet = this.waving.wave.bind(this.waving) //фнк
-    //   }
-    //   greet() {
-    //     this.princessGreet()
-    //     console.log(`${this.name} making a reverance`);
-    //   }
-    // }
+    const firstLady = new Lady('Princess Anna')
+    console.log(firstLady);
+    class Princess {
+      constructor(name, waving) {
+        this.name = name;
+        this.waving = waving;
+        //function princessGreet
+        this.princessGreet = this.waving.wave.bind(this.waving) //фнк
+      }
+      greet() {
+        // this.princessGreet()
+        console.log(`${this.name} making a reverance`);
+      }
+    }
 
-    // const dutchPrincess = new Princess('Anna', firstLady)
-    // console.log(dutchPrincess.name);
-    // dutchPrincess.greet()
+    let princess2 = new Princess('Dinara');
+    let wear = Lady.prototype.wearingCrown.call(princess2)//
 
+    const dutchPrincess = new Princess('Anna', firstLady)
+    console.log(dutchPrincess.name);
+    dutchPrincess.greet()
+
+
+    // console.log(firstLady instanceof Lady);    // true
+    // console.log(firstLady instanceof Princess);    // false
 
 
     //=====================================================================================================
@@ -175,7 +185,7 @@
     //     return total + total * this.tip;
     //   },
     //   detail(dish1, dish2, summ) {
-    //     return `Ваш ужин из ${dish1 + ' и ' + dish2} составялет ${this.calculate(summ)}`
+    //     return `Ваш ужин из ${dish1 + ' и ' + dish2} составляет ${this.calculate(summ)}`
     //   }
     // }
 
@@ -190,7 +200,7 @@
     // const payBill2 = bill.detail.call(bill, 'пицца Маргарита', 'паста Карбонара', 1000)
     // const payBill3 = bill.detail.call(bill, ...['пицца Маргарита', 'паста Карбонара', 1000])
     // const payBill4 = bill.detail.apply(bill, ['пицца Маргарита', 'паста Карбонара', 1000])
-    // const payBill5 = bill.detail.bind(bill, 'пицца Маргарита', 'паста Карбонара', 1000, { tip: 0.5 })()
+    // const payBill5 = bill.detail.bind(bill, 'пицца Маргарита', 'паста Карбонара', 1000)()
 
     // console.log(payBill);
     // console.log(payBill2);
@@ -207,13 +217,13 @@
     // Объект arguments -  Устаревший способ получить все значения, переданные в функцию при вызове.
     // function summarize() {
     //   console.log(arguments);
-    //   console.log(Array.isArray([].slice.call(arguments)));
+    //   // console.log(Array.isArray([].slice.call(arguments)));
     //   return [].reduce.call(arguments, (acc, item) => acc + item)
     // }
-
     // console.log(summarize(1, 2, 3, 4, 5));
+    // // console.log(summarize());
 
-    // // современный синтаксис
+    // // // современный синтаксис
     // function summarize2(...args) {
     //   console.log(args);
     //   console.log(Array.isArray([].slice.call(args)));
