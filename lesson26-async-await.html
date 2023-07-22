@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 26 - cookie, async, API</title>
+</head>
+
+
+<body>
+  <h1>cookie, async, API</h1>
+
+  <script>
+
+
+    function getMainActorProfileFromMovie(id) {
+      return fetch(`https://swapi.dev/api/films/${id}/`)
+        .then((movieResponse) => {
+          return movieResponse.json()
+        })
+        .then((movie) => {
+          const characterUrl = movie.characters[0].split("//")[1]
+          return fetch(`https://${characterUrl}`)
+        })
+        .then((characterResponse) => {
+          return characterResponse.json()
+        })
+        .catch((err) => {
+          console.error("Произошла ошибка!", err)
+        })
+    }
+
+    getMainActorProfileFromMovie(1).then((profile) => {
+      console.log(profile)
+    })
+
+    //async await
+
+    async function getMainActorProfileFromMovie2(id) {
+      try {
+        // код для исполнения
+        const movieResponse = await fetch(`https://swapi.dev/api/films/${id}/`);
+        const movie = await movieResponse.json();
+
+        const characterUrl = movie.characters[0].split('//')[1];
+        console.log(movie);
+        console.log(movie.characters);
+        const characterResponse = await fetch(`https://${characterUrl}`);
+        return characterResponse.json();
+      } catch (err) {
+        // обработка ошибки
+        console.error('Произошла ошибка!', err);
+      }
+    }
+
+    getMainActorProfileFromMovie2(1).then((profile) => { console.log(profile) });
+
+
+
+
+  </script>
+</body>
+
+</html>

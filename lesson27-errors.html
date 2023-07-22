@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 27 - errors</title>
+</head>
+
+
+<body>
+  <h1>errors</h1>
+
+  <script>
+
+
+    async function getMainActorProfileFromMovie2(id) {
+      try {
+        // код для исполнения
+        const movieResponse = await fetch(`https://swapi.dev/api/films/${id}/`);
+        const movie = await movieResponse.json();
+
+        const characterUrl = movie.characters[0].split('//')[1];
+        console.log(movie);
+        console.log(movie.characters);
+        const characterResponse = await fetch(`https://${characterUrl}`);
+        return characterResponse.json();
+      } catch (err) {
+        // обработка ошибки
+        console.error('Произошла ошибка!', err);
+      }
+    }
+
+    getMainActorProfileFromMovie2(1).then((profile) => { console.log(profile) });
+
+
+
+
+    try {
+      const six = 6 // 1. Создаём константу
+      console.log(six) // 2. Выведет 6
+
+      six = 7 // Ошибка! Присваиваем новое значение в const
+
+      // с этого места управление переходит в catch
+
+      const nine = 9 // не выполнится
+      console.log(six + nine) // и это тоже не исполнится
+    } catch (err) {
+      console.log('Поймали ошибку!') // 3. Обработали ошибку
+    }
+
+    console.log('Что ж, можно и продолжать') // 4. Будет выполняться дальше
+
+
+
+
+  </script>
+  <script async src="/js/iife.js"></script>
+  <script defer src="/js/iife.js"></script>
+
+
+</body>
+
+</html>
