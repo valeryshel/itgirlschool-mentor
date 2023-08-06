@@ -15,24 +15,23 @@
   <script>
 
 
-    async function getMainActorProfileFromMovie2(id) {
-      try {
-        // код для исполнения
-        const movieResponse = await fetch(`https://swapi.dev/api/films/${id}/`);
-        const movie = await movieResponse.json();
+    // async function getMainActorProfileFromMovie2(id) {
+    //   try {
+    //     // код для исполнения
+    //     const movieResponse = await fetch(`https://swapi.dev/api/films/${id}/`);
+    //     const movie = await movieResponse.json();
+    //     const characterUrl = movie.characters[1].split('//')[1];
+    //     console.log(movie);
+    //     console.log(movie.characters);
+    //     const characterResponse = await fetch(`https://${characterUrl}`);
+    //     return characterResponse.json();
+    //   } catch (err) {
+    //     // обработка ошибки
+    //     console.error('Произошла ошибка!', err);
+    //   }
+    // }
 
-        const characterUrl = movie.characters[0].split('//')[1];
-        console.log(movie);
-        console.log(movie.characters);
-        const characterResponse = await fetch(`https://${characterUrl}`);
-        return characterResponse.json();
-      } catch (err) {
-        // обработка ошибки
-        console.error('Произошла ошибка!', err);
-      }
-    }
-
-    getMainActorProfileFromMovie2(1).then((profile) => { console.log(profile) });
+    // getMainActorProfileFromMovie2(1).then((profile) => { console.log(profile) });
 
 
 
@@ -55,10 +54,17 @@
 
 
 
+    let input = "3333";
+    if (isNaN(input)) {
+      console.log("Это не число");
+    } else {
+      console.log("Это число");
+    }
+
 
   </script>
-  <script async src="/js/iife.js"></script>
-  <script defer src="/js/iife.js"></script>
+  <!-- <script async src="/js/iife.js"></script>
+  <script defer src="/js/iife.js"></script> -->
 
 
 </body>
