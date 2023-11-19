@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algorithms & Data Structures</title>
+</head>
+
+<body>
+  <script>
+    // функция компаратор
+    const comparator = (a, b) => a - b;
+
+    //  функция перестановки элементов
+    const swap = (arr, i, j) => {
+      let temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+    }
+
+    // Пузырьковая сортировка - bubble sort
+
+    function bubbleSort(arr) {
+      for (let j = arr.length - 1; j > 0; j--) {
+        for (let i = 0; i < j; i++) {
+          if (comparator(arr[i], arr[i + 1]) > 0) {
+            swap(arr, i, i + 1);
+          }
+        }
+      }
+    }
+
+    // Первый цикл отслеживает индекс последнего всплывшего элемента. На каждой итерации он будет уменьшаться.
+    // Второй цикл – это индекс активного элемента на текущей итерации. Он будет начинаться с нуля и продолжаться до элементов, "всплывших" на предыдущих итерациях. Так как они уже отсортированы, не имеет смысла снова их сравнивать.
+
+
+
+
+    // .2. Сортировка выбором
+
+    function selectionSort(arr) {
+      for (let i = 0; i < arr.length - 1; i++) {
+        let min = i;
+
+        for (let j = i + 1; j < arr.length; j++) {
+          if (comparator(arr[min], arr[j]) > 0) {
+            min = j;
+          }
+        }
+
+        if (min !== i) swap(arr, i, min);
+      }
+    }
+    //  Начинаем с нулевого элемента. На каждой итерации ищем минимум в неотсортированной части и добавляем его к отсортированной.
+
+
+    // 3. Сортировка вставками
+
+    function insertionSort(arr) {
+      for (let i = 1; i < arr.length; i++) {
+        let current = i;
+
+        while (arr[current - 1] !== undefined && comparator(arr[current], arr[current - 1]) < 0) {
+          swap(arr, current - 1, current);
+          current--;
+        }
+      }
+    }
+
+    // Начинаем с первого элемента (нулевой считаем отсортированным). На каждой итерации сравниваем активный элемент с отсортированными и находим его место.
+
+    //
+
+    // 4. Сортировка слиянием
+
+    function mergeSort(arr) {
+      if (arr.length <= 1) return arr;
+
+      // середина массива
+      let middle = Math.floor(arr.length / 2);
+
+      // два подмассива, которые будут сортироваться отдельно
+      let left = arr.slice(0, middle);
+      let right = arr.slice(middle);
+
+      // слияние отсортированных подмассивов
+      return mergeSortedArrays(mergeSort(left), mergeSort(right));
+    }
+
+    function mergeSortedArrays(arr1, arr2) {
+      // Результат слияния
+      let newArray = [];
+
+      // текущие индексы сравниваемых элементов
+      let index1 = 0;
+      let index2 = 0;
+
+      // сравнение активных элементов
+      while (index1 < arr1.length && index2 < arr2.length) {
+        let min = null;
+        if (comparator(arr1[index1], arr2[index2]) <= 0) {
+          min = arr1[index1]; // добавление минимального элемента в массив
+          index1++; // сдвиг индекса активного элемента первого массива
+        } else {
+          min = arr2[index2];
+          index2++;
+        }
+
+        newArray.push(min);
+
+      }
+
+      return [...newArray, ...arr1.slice(index1), ...arr2.slice(index2)];
+    }
+
+
+    // 5. Быстрая сортировка - сортировка Хоара
+
+    function quickSort(arr, start, end) {
+      if (start === undefined) start = 0;
+      if (end === undefined) end = arr.length - 1;
+
+      if (start >= end) return;
+
+      // индекс опорного элемента
+      let pivot = partition(arr, start, end);
+
+      // рекурсивная сортировка подмассивов
+      quickSort(arr, start, pivot - 1);
+      quickSort(arr, pivot + 1, end);
+    }
+
+    function partition(arr, start, end) {
+      // Берем в качестве опорного последний элемент подмассива
+      let pivotValue = arr[end];
+
+      // изначально считаем, что pivotValue минимальное значение
+      // и должно находиться в начале массива
+      let pivotIndex = start;
+
+      // перебираем все элементы
+      for (let i = start; i < end; i++) {
+        // значения меньше опорного перемещаем перед ним
+        if (comparator(arr[i], pivotValue) < 0) {
+          swap(arr, i, pivotIndex);
+          pivotIndex++;
+        }
+      }
+
+      // ставим опорный элемент в нужное место
+      swap(arr, pivotIndex, end);
+
+      return pivotIndex;
+    }
+
+    // 6.Линейный поиск
+
+    function linearSearch(arr, wanted) {
+      let found = [];
+      arr.forEach((el, i) => {
+        if (comparator(el, wanted) === 0) found.push(i);
+      });
+      return found;
+    }
+
+    // Функция linearSearch находит все подходящие элементы в отличие от Array.prototype.find, которая ограничивается только первым. Очевидно, что сложность этого алгоритма равна O(n), так как в худшем случае придется перебрать каждый элемент массива.
+
+
+
+    // 7. Бинарный поиск (разделяй и властвуй)
+    // Второй алгоритм поиска использует принцип разделяй и властвуй и является более эффективным. Вот только ему для работы непременно нужен отсортированный массив, иначе ничего не получится.
+
+    function binarySearch(arr, wanted) {
+      // Границы подмассива для поиска
+      let start = 0;
+      let end = arr.length - 1;
+
+      while (start <= end) {
+
+        // центр подмассива
+        let middle = start + Math.floor((end - start) / 2);
+        if (comparator(arr[middle], wanted) === 0) return middle;
+
+        // выбираем нужную половину
+        if (comparator(arr[middle], wanted) < 0) start = middle + 1;
+        else end = middle - 1;
+      }
+
+      return -1; // ничего не нашлось
+    }
+
+    // 8. Связный список
+
+    // prepend - добавление нового элемента в начало списка;
+    // append - добавление нового элемента в конец списка;
+    // delete - удаление всех элементов с указанным значением
+    // forEach для последовательного обхода всех узлов списка
+
+    class LinkedListNode {
+      constructor(value, next = null) {
+        this.value = value;
+        this.next = next;
+      }
+    }
+
+    class LinkedList {
+      constructor(comparator) {
+        this.head = null;
+        this.tail = null;
+
+        this.comparator =
+          comparator ||
+          function (i, j) {
+            if (i < j) return -1;
+            if (i > j) return 1;
+            return 0;
+          };
+      }
+
+      prepend(value) {
+        let newNode = new LinkedListNode(value, this.head);
+        this.head = newNode;
+
+        if (!this.tail) this.tail = newNode;
+      }
+
+      append(value) {
+        let newNode = new LinkedListNode(value);
+        if (this.tail) this.tail.next = newNode;
+        this.tail = newNode;
+        if (!this.head) this.head = newNode;
+      }
+
+      delete(value) {
+        if (!this.head) return;
+
+        // если удаляется голова списка,
+        // нужно обозначить новую голову
+        while (this.head && this.comparator(this.head.value, value) === 0) {
+          this.head = this.head.next;
+        }
+
+        let current = this.head;
+
+        if (current !== null) {
+          while (current.next) {
+            if (this.comparator(current.next.value, value) === 0) {
+              current.next = current.next.next;
+            } else {
+              current = current.next;
+            }
+          }
+        }
+
+        if (this.comparator(this.tail.value, value) === 0) {
+          this.tail = current;
+        }
+      }
+
+      forEach(callback) {
+        let current = this.head;
+        while (current) {
+          callback(current.value);
+          current = current.next;
+        }
+      }
+    }
+
+    // 9. Стек на основе односвязного списка
+
+    class Stack {
+      constructor() {
+        this.linkedList = new LinkedList();
+      }
+
+      isEmpty() {
+        return !this.linkedList.head;
+      }
+
+      peek() {
+        if (this.isEmpty()) {
+          return null;
+        }
+        return this.linkedList.head.value;
+      }
+
+      push(value) {
+        this.linkedList.prepend(value);
+      }
+
+
+      pop() {
+        const removedHead = this.linkedList.deleteHead();
+        return removedHead ? removedHead.value : null;
+      }
+    }
+
+    // 10. Очередь на основе связного списка
+    class Queue {
+      constructor() {
+        this.linkedList = new LinkedList();
+      }
+
+      isEmpty() {
+        return !this.linkedList.head;
+      }
+
+      peek() {
+        if (!this.linkedList.head) {
+          return null;
+        }
+
+        return this.linkedList.head.value;
+      }
+
+      enqueue(value) {
+        this.linkedList.append(value);
+      }
+
+      dequeue() {
+        const removedHead = this.linkedList.deleteHead();
+        return removedHead ? removedHead.value : null;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    // Чтобы перевести число в двоичную систему, можно воспользоваться любым онлайн-сервисом или нативным методом языка toString:
+
+    let number = 5;
+    number.toString(2); // '101'
+
+
+    // Для обратного перевода двоичных чисел в десятичную систему можно использовать функцию parseInt с указанием основания системы:
+
+    let bNumber = '101';
+    parseInt(bNumber, 2); // 5
+
+
+  </script>
+</body>
+
+</html>

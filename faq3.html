@@ -22,7 +22,7 @@
       </ul>
     </nav>
   </header>
-  <main>
+  <>
     <h1>Главный заголовок</h1>
     <div>
       <form action="">
@@ -70,18 +70,35 @@
     <input type="submit" style="height: 50px; width: 100px;"> отправят !!форму, в которой они находятся, когда
     пользователь нажимает на них, если вы не указали иначе с JavaScript
 
+
+    <search>
+      ПОИСК
+    </search>
     <p>
 
       Элементы button намного проще стилизовать, чем элементы input. Вы можете добавить
       внутреннее содержимое HTML (например, em, strong или даже img) и использовать псевдоэлемент :: after и ::
       before для достижения сложного рендеринга, в то время как input принимает только атрибут текстового значения
     </p>
-  </main>
-  <footer>
-    <address>
 
-    </address>
-  </footer>
+    <input type="checkbox" name="1" id="test1"><label for="test1">test 1 label</label>
+    <input type="checkbox" name="2" id="test2"><label for="test2">test 2 label</label>
+    <input type="checkbox" name="3" id="test3"><label for="test3">test 3 label</label>
+    <input type="checkbox" name="4" id="test4"><label for="test4">test 4 label</label>
+
+    <div>
+      <label for="food">Чем питается
+        <input type="checkbox"> Сухой корм
+        <input type="checkbox"> Влажный корм
+        <input type="checkbox"> Натуральный
+      </label>
+    </div>
+    </main>
+    <footer>
+      <address>
+
+      </address>
+    </footer>
 </body>
 
 </html>
