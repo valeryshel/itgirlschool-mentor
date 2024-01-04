@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    section {
+      border: #454545 1px dotted;
+      display: flex;
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      margin: 5px;
+      background-color: #d89a9a;
+    }
+
+    .rel-blocks-2 {
+      background-color: #c7f0a3;
+      position: relative;
+      top: 10px;
+      left: 10px;
+    }
+
+    .abs {
+      position: relative;
+    }
+
+    .abs-blocks-2 {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #acbae4;
+    }
+
+    .fixed {
+      position: relative;
+    }
+
+    .fixed-blocks-2 {
+      position: fixed;
+      left: 10px;
+      top: 10px;
+      background-color: #f9c046;
+    }
+
+    .sticky {
+      position: relative;
+      display: block;
+    }
+
+    .sticky-blocks-2 {
+      position: sticky;
+      left: 10px;
+      top: 50px;
+      background-color: #f17ac3;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>position: relative</h2>
+  <section class="rel">
+    <div class="rel-blocks"></div>
+    <div class="rel-blocks rel-blocks-2"></div>
+    <div class="rel-blocks"></div>
+    <div class="rel-blocks"></div>
+  </section>
+  <br>
+  <h2>position: absolute</h2>
+  <section class="abs">
+    <div class="abs-blocks"></div>
+    <div class="abs-blocks abs-blocks-2"></div>
+    <div class="abs-blocks"></div>
+    <div class="abs-blocks"></div>
+  </section>
+  <br>
+  <h2>position: fixed</h2>
+  <section class="fixed">
+    <div class="fixed-blocks"></div>
+    <div class="fixed-blocks fixed-blocks-2"></div>
+    <div class="fixed-blocks"></div>
+    <div class="fixed-blocks"></div>
+  </section>
+  <br>
+  <h2>position: sticky</h2>
+  <section class="sticky">
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks sticky-blocks-2"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+    <div class="sticky-blocks"></div>
+  </section>
+</body>
+
+</html>

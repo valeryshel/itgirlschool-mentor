@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <h2>Фотография лежит в той же папке</h2>
+  <img src="2kitty.jpg" alt="kitty" /> - верный путь
+  <img src="./2kitty.jpg" alt="kitty" /> - устаревшей путь
+  <img src="http://127.0.0.1:5500/2kitty.jpg" alt="kitty" />
+  <img src="https://valeryshel.github.io/itgirlschool-mentor/2kitty.jpg" alt="kitty" />
+  <h2>Фотография лежит выше в папке task1</h2>
+  <img src="../task1/2kitty.jpg" alt="kitty" /> - верный путь
+  <img src="http://127.0.0.1:5500/project1/task1/2kitty.jpg" alt="kitty" />
+  <img src="https://valeryshel.github.io/itgirlschool-mentor/project1/task1/2kitty.jpg" alt="kitty" />
+  <h2>Фотография лежит еще выше в папке project1</h2>
+  <img src="../../2kitty.jpg" alt="kitty">
+  <img src="../2kitty.jpg" alt="kitty">
+  <img src="http://127.0.0.1:5500/project1/2kitty.jpg" alt="kitty" />
+  <img src="https://valeryshel.github.io/itgirlschool-mentor/project1/2kitty.jpg" alt="kitty" />
+  <h2>Фотография лежит еще выше в корневой папке itgirlschool</h2>
+  <img src="../../../1kitty.jpg" alt="kitty" />
+  <img src="../../1kitty.jpg" alt="kitty" />
+  <img src="http://127.0.0.1:5500/1kitty.jpg" alt="kitty" />
+  <img src="https://valeryshel.github.io/itgirlschool-mentor/1kitty.jpg" alt="kitty" />
+  <br />
+  <a href="../../index.html">Вернуться назад</a>
+
+  <h3>Вывод</h3>
+  <p>
+    Для внутренних ссылок лучше использовать относительные адреса.
+    <br />Для внешних ссылок и рассылок с сайта лучше использовать абсолютные
+    ссылки .
+  </p>
+</body>
+
+</html>

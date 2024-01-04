@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 24 - OOP</title>
+</head>
+
+
+<body>
+  <h1>OOP</h1>
+
+  <script>
+    // 'use strict'
+
+    // ПРОСТАЯ ФУНКЦИЯ
+    // function hello(who) {
+    //   console.log(`Hello, ${who}!`)
+    //   console.log(this); //Window
+    //   console.log(this === window); //true
+    // }
+
+    // hello('World'); // Hello, World!
+    // =====================================================================================================
+
+    // анонимная функция мгновенного вызова
+    // ; (function () {
+    //   console.log(this === window)
+    // })()
+    // true
+
+    // USE STRICT
+    // function hello() {
+    //   console.log(this === undefined)
+    // }
+
+    // hello()
+    // true
+
+
+    //=====================================================================================================
+    // МЕТОД ОБЪЕКТА
+
+    // const user = {
+    //   name: 'Lera',
+    //   greet(name) {
+    //     console.log(`Hello, my name is ${this.name}`)
+    //   },
+    // }
+    // const elena = {
+    //   name: 'Elena'
+    // }
+
+    // user.greet() //это метод объекта user. В этом случае значение this — этот объект.
+    // // Hello, my name is Lera
+
+    // const greetOuter = user.greet //отвязали функцию от объекта - потеряли контекст!
+    // greetOuter()  // Hello, my name is
+
+    // //1
+    // let greeting = user.greet.bind(user) //привязали контекст
+    // greeting() //Hello, my name is
+    // //2
+    // user.greet.bind(elena)()
+
+    //==========================================================================
+    //непрямой вызов
+    // function greet2(greetWord, emoticon) {
+    //   console.log(`${greetWord} ${this.name} ${emoticon}`)
+    // }
+
+    // const user1 = { name: 'irina' }
+    // const user2 = { name: 'Nina' }
+
+    // greet2.call(user1, 'Hello,', ':-)')
+    // // Hello, Alex :-)
+    // greet2.call(user2, 'Good morning,', ':-D')
+    // // Good morning, Ivan :-D
+    // greet2.apply(user1, ['Hello,', ':-)'])
+    // // Hello, Alex :-)
+    // greet2.apply(user2, ['Good morning,', ':-D'])
+    // // Good morning, Ivan :-D
+
+    //==============================================================================
+
+    // function printName(text, text2) {
+    //   console.log(text + text2 + this.name);
+    //   console.log(this);
+    // }
+
+    // let user1 = {
+    //   name: 'Victoria',
+    // }
+
+    // // let sayName = printName.bind(user1, 'My ', 'name is ') //мы хотим чтобы функция printName выполнялась в контексте user1
+    // // sayName()
+    // console.log(typeof sayName);
+    // let sayName = printName.bind(user1, 'My ') //мы хотим чтобы функция printName выполнялась в контексте user1
+    // sayName('name is ')
+
+    //=====================================================================================================
+
+    // const auto = {
+    //   brand: 'BMW',
+    //   drive() {
+    //     console.log(this);
+    //     return `Заведем ${this.brand}`;
+    //   }
+    // }
+    // const bike = {
+    //   brand: 'Suzuki'
+    // }
+    // const driveBike = auto.drive.bind(bike)
+    // console.log(driveBike());
+
+
+    //===========================================================================
+    // const elem = document.querySelector.bind(document)
+
+    // console.log(elem);
+    // console.log(typeof elem);
+    // console.log(typeof document.querySelector);
+    // console.log(elem === document.querySelector);
+
+    // const header = elem('h1')
+
+    // console.log(header);
+    //============================================================================
+    // вызов конструктора
+
+    // function Lady() {
+    //   this.name = 'Diana'
+    // }
+
+    class Lady {
+      constructor(name) {
+        // При вызове сперва создаётся новый пустой объект, и он присваивается this.
+        // this = {};
+        this.name = name; //Выполняется код функции. Обычно он модифицирует this, добавляет туда новые свойства.
+        //return this  - Возвращается значение this.
+      }
+      wave() {
+        console.log(`${this.name} is waving her hand`);
+      }
+      wearingCrown() {
+        console.log(`${this.name} is wearing crown`);
+      }
+    }
+
+    const firstLady = new Lady('Princess Anna')
+    console.log(firstLady);
+    class Princess {
+      constructor(name, waving) {
+        this.name = name;
+        this.waving = waving;
+        //function princessGreet
+        this.princessGreet = this.waving.wave.bind(this.waving) //фнк
+      }
+      greet() {
+        // this.princessGreet()
+        console.log(`${this.name} making a reverance`);
+      }
+    }
+
+    let princess2 = new Princess('Dinara');
+    let wear = Lady.prototype.wearingCrown.call(princess2)//
+
+    const dutchPrincess = new Princess('Anna', firstLady)
+    console.log(dutchPrincess.name);
+    dutchPrincess.greet()
+
+
+    // console.log(firstLady instanceof Lady);    // true
+    // console.log(firstLady instanceof Princess);    // false
+
+
+    //=====================================================================================================
+
+    // const bill = {
+    //   tip: 0.1,
+    //   calculate(total) {
+    //     console.log(this);
+    //     return total + total * this.tip;
+    //   },
+    //   detail(dish1, dish2, summ) {
+    //     return `Ваш ужин из ${dish1 + ' и ' + dish2} составляет ${this.calculate(summ)}`
+    //   }
+    // }
+
+    // const pay = bill.calculate(1000);
+    // const calcBill = bill.calculate.bind({ tip: 0.5 }, 1000);
+    // const calcBill2 = bill.calculate.bind({ tip: 0.2 });
+    // console.log(pay);
+    // console.log(calcBill());
+    // console.log(calcBill2(1000));
+
+    // const payBill = bill.detail('пицца Маргарита', 'паста Карбонара', 1000)
+    // const payBill2 = bill.detail.call(bill, 'пицца Маргарита', 'паста Карбонара', 1000)
+    // const payBill3 = bill.detail.call(bill, ...['пицца Маргарита', 'паста Карбонара', 1000])
+    // const payBill4 = bill.detail.apply(bill, ['пицца Маргарита', 'паста Карбонара', 1000])
+    // const payBill5 = bill.detail.bind(bill, 'пицца Маргарита', 'паста Карбонара', 1000)()
+
+    // console.log(payBill);
+    // console.log(payBill2);
+    // console.log(payBill3);
+    // console.log(payBill4);
+    // console.log(payBill5);
+    //=====================================================================================================
+
+
+
+
+    // одолжить метод
+
+    // Объект arguments -  Устаревший способ получить все значения, переданные в функцию при вызове.
+    // function summarize() {
+    //   console.log(arguments);
+    //   // console.log(Array.isArray([].slice.call(arguments)));
+    //   return [].reduce.call(arguments, (acc, item) => acc + item)
+    // }
+    // console.log(summarize(1, 2, 3, 4, 5));
+    // // console.log(summarize());
+
+    // // // современный синтаксис
+    // function summarize2(...args) {
+    //   console.log(args);
+    //   console.log(Array.isArray([].slice.call(args)));
+    //   return [].reduce.call(args, (acc, item) => acc + item)
+    // }
+
+    // console.log(summarize2(1, 2, 3, 4, 5));
+
+    //=====================================================================================================
+
+    // Каррирование - это трансформация функций таким образом, чтобы они принимали аргументы не как f(a, b, c), а как f(a)(b)(c).
+    // Для каррирования необходима функция с фиксированным количеством аргументов.
+    // Функцию, которая использует остаточные параметры, типа f(...args), так каррировать не получится.
+
+    // Раньше
+    // function curry(f) { // curry(f) выполняет каррирование
+    //   return function (a) {
+    //     return function (b) {
+    //       return f(a, b);
+    //     };
+    //   };
+    // }
+
+    //Сейчас
+    // function curry(fn) {
+
+    //   return function curried(...args) {
+    //     if (args.length >= fn.length) {
+    //       return fn.apply(this, args);
+    //     }
+    //     return function (...args2) {
+    //       return curried.apply(this, args.concat(args2));
+    //     }
+    //   };
+    // }
+
+    // function sum(a, b, c) {
+    //   return a + b + c;
+    // }
+
+    // const curriedSum = curry(sum);
+
+    // console.log(curriedSum(1, 2, 3)); // 6, всё ещё можно вызывать нормально
+    // console.log(curriedSum(1)(2, 3)); // 6, каррирование первого аргумента
+    // console.log(curriedSum(1)(2)(3)); // 6, каррирование всех аргументов
+
+    //=====================================================================================================
+
+
+  </script>
+</body>
+
+</html>

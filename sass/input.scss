@@ -1,0 +1,56 @@
+// sass --watch sass/input.scss:style/output.css
+
+@mixin large-text {
+  font: {
+    family: Arial;
+    size: 30px;
+    weight: bolder;
+  }
+  color: #ff0000;
+}
+
+$primary-color: #7f84d8;
+$fsize: 20px;
+$df: flex;
+
+@mixin flexcenter() {
+  display: $df;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background-color: $primary-color;
+
+  header {
+    color: #ab0075;
+  }
+}
+.navigation {
+  &-list {
+    margin: 0;
+    padding: 0;
+    background-color: #b07ba5;
+    // width: 600px / 960px * 100%;
+    width: calc(600px / 960px) * 100%;
+
+    &__item {
+      list-style-type: disc;
+      text-decoration: line-through;
+      font-size: $fsize;
+    }
+  }
+}
+.hello {
+  background-color: #6b3661;
+  &-items {
+    &__item {
+      font-weight: 700;
+      color: #fff;
+      @extend .navigation-list__item;
+    }
+  }
+}
+
+@import "reset";
+// @import "_part";

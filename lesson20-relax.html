@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 20</title>
+</head>
+
+<body>
+
+  <script>
+
+    // - Хранение по ссылке и по значению
+
+    //Когда мы что-то создаем, то выделяется память
+    //Примитивные типы данных = числа (number), строки (string), булевы (boolean), а так же специальные значения null и undefined.
+
+    let a = 'Привет';  // выделили 6 бит памяти
+    // console.log(a);
+    let b = a; //еще 6 бит памяти  - скопировали данные
+    // console.log(b);
+    // console.log(a === b); //true - Когда мы сравниваем два значения, то у нас по сути произойдёт побайтовое сравнение этих величин.
+
+    a = 'Привет, Мир!';
+
+    // console.log(a, b);
+
+    // console.log(a[0]);
+
+    a[0] = 'К';
+
+    // console.log(a); //примитивные типы данных иммутабельны и передаются по значению
+
+
+
+    // Ссылочные типы данных - объекты, массивы, функции и др. Мы не знаем, какое количество памяти для них понадобится. Когда мы создаем объект, то в переменную получаем ссылку на место, где данные хранятся.
+
+    let arr = ['red', 'green', 'blue'] // получили ссылку на данные
+
+    let arr2 = arr; //Присвоить значение из arr в другую переменную, значит скопировать ссылку, а не само значение.
+
+    // console.log(arr === arr2); //true   - переменные ссылаются на 1 и тот же объект
+
+    let arr3 = ['red', 'green', 'blue'];
+
+    // console.log(arr === arr3); //false  - переменные ссылаются на разные объекты
+
+
+
+
+    // !!!!* Если кто-то из двух владельцев ссылки будет изменять объект, то изменения отразятся на всех.
+
+    let cat = {
+      name: 'Фрося',
+      age: 3
+    }
+    // console.log(cat);
+
+    let kitty = cat;
+    // console.log(kitty);
+
+    kitty.name = 'Фантик'
+
+    // console.log(cat, kitty); // изменилось имя у обоих кошечек
+
+
+
+    ////////////Если переменная потеряет ссылку на объект, то изменения уже не будут на него влиять
+
+    let user = { name: 'Анна', age: 21 }
+    const admin = user
+    // console.log(user, admin);
+
+    // Переопределение никак не повлияет на admin, потому что мы создали новый объект и разорвали предыдущую ссылку связь
+    user = { name: 'Иван' }
+
+    // console.log(admin) // { name: 'Анна', age: 21 }
+
+    admin.isAdmin = true
+
+    // console.log(user) // { name: 'Иван' }
+    // console.log(admin) // { name: 'Анна', age: 21, isAdmin: true }
+
+    //Изменение значений у полей объекта, добавление или удаление их отразится на всех, кто владеет ссылкой на этот объект. Такие операции называют мутациями.
+
+    const dog = {
+      name: 'Жозефина',
+      breed: 'пудель',
+      age: 1,
+      isDog: true,
+      size: {
+        height: '45 sm',
+        weight: '15 kg',
+      }
+    }
+
+    // Чтобы скопировать через Object.assign() нужно передать пустой объект
+    const dogCopy = Object.assign({}, dog)
+
+    const dog2Copy = {
+      ...dog,
+    }
+
+    // console.log(dog, dogCopy, dog2Copy);
+
+    dogCopy.name = 'Антонина'
+    dogCopy.breed = 'такса'
+
+    dog2Copy.name = 'Никита'
+    dog2Copy.breed = 'доберман'
+
+
+    // console.log(dog, dogCopy, dog2Copy);
+
+
+    //При копировании объекта указанным способом копируются только поля верхней вложенности (сработает поверхностное копирование). Любые вложенные объекты копируются по ссылке. Их изменение затронет и первоисточник
+
+    dog2Copy.size.height = '70 sm'
+    dog2Copy.size.weight = '50 kg'
+
+    // console.log(dog, dogCopy, dog2Copy);
+
+
+    // Коипрование объекта через SPREAD-синтаксис
+
+    const student = {
+      name: 'Вика',
+      age: 31,
+      isStudent: true,
+    }
+
+    const studentCopy = {
+      ...student,
+    }
+
+    // console.log(student, studentCopy);
+
+    studentCopy.age = '22'
+
+    // console.log(student, studentCopy);
+
+    ////// Если каждый раз создавать объект, когда мы вносим изменения, то такие объекты называют иммутабельными (immutable) или неизменяемыми.
+
+    //     Аргументы функций
+    // При передаче примитивного типа данных, его значение копируется в аргумент.
+    // При использовании ссылочного типа данных копируется ссылка. Все изменения в объекте, который был передан в качестве аргумента, будут видны всем, кто владеет ссылкой:
+
+    const member = { id: '123', name: 'Иван' }
+
+    function makeAdmin(user) {
+      user.isAdmin = true
+
+      return user
+    }
+
+    const adminchik = makeAdmin(member)
+
+    // console.log(adminchik)
+    // { id: '123', name: 'Иван', isAdmin: true }
+    // console.log(member)
+    // { id: '123', name: 'Иван', isAdmin: true }
+
+    // Это один и тот же объект
+    // console.log(adminchik === member)
+    // true
+
+
+
+
+
+
+
+    // !!!СПРЕД СИНТАКСИС [...]!!!
+    // 1. При вызове функции использовать значения из массива как аргументы:
+
+
+    function multiplyThreeNumbers(a, b, c) {
+      return a * b * c
+    }
+    const nums = [1, 2, 3]
+    const nums2 = [1, 2, 3, 4, 5, 6]
+
+    // console.log(multiplyThreeNumbers(...nums))
+    // console.log(multiplyThreeNumbers(...nums2))
+    //Если в массиве будет больше элементов, чем параметров функции, то будут использованы только те элементы, которые идут первыми по порядку
+
+
+
+
+    // 2. При создании массивов с помощью литерала []
+    // ВМЕСТО concat()
+    // В массиве скопировать элементы из другого массива в новый:
+
+    const donor = ['это', 'старые', 'значения']
+    const newArray = [...donor, 1, true, 'новые', 'значения']
+
+    // console.log(newArray)
+    // ['это', 'старые', 'значения', 1, true, 'новые', 'значения']
+
+    // Cоздать копию существующего массива:
+    const watchedMovies = ['Rocky', 'Terminator 2', 'The Matrix']
+    const myWatchedMovies = [...watchedMovies] // это новый массив не связанный по ссылке со старым!!!
+    // console.log(myWatchedMovies);
+    myWatchedMovies[0] = 'Prince of Persia';
+    // console.log(watchedMovies);
+    // console.log(myWatchedMovies);
+
+
+    const someTypes = [123, ['15', 'alfa', ['new', 111, null]], { name: 'Inga' }, null]
+    const newSomeTypes = [...someTypes, 1, true, Infinity, NaN]
+    // console.log(newSomeTypes);
+
+    //Cклеить несколько массивов в один:
+
+    const movies = ['Rocky', 'Terminator 2', 'The Matrix']
+    const series = ['Prison Break', 'Rick&Morty', 'Lost']
+
+    const watched = [...movies, ...series]
+    // console.log(watched);
+    // [
+    //  'Rocky',
+    //  'Terminator 2',
+    //  'The Matrix',
+    //  'Prison Break',
+    //  'Rick&Morty',
+    //  'Lost'
+    // ]
+
+
+    // 3.При создании объекта с помощью литерала {}
+    // У объекта скопировать свойства из другого объекта в новый:
+
+    // const persona = { name: 'Иван', lastName: 'Объектов' }
+    // const userData = Object.assign({ username: 'killer3000' }, persona)
+    // const userData = { ...persona, username: 'killer3000' }
+
+    // console.log(userData)
+
+    // {
+    //    name: 'Иван',
+    //    lastName: 'Объектов',
+    //    username: 'killer3000'
+    // }
+
+    // Если свойства в новом и старом объекте совпадают, то будет использоваться значение свойства, которое шло последним:
+    // const persona = { name: 'Иван', lastName: 'Объектов' }
+    // const userData = { name: 'Николай', ...persona }
+
+    // console.log(userData)
+    // { name: 'Иван', lastName: 'Объектов' }
+
+    //Если поставить спред в начало, то будет использоваться новое имя:
+
+
+    // const person = { name: 'Иван', lastName: 'Объектов' }
+    // const userData = { ...person, name: 'Николай' }
+
+    // console.log(userData)
+    // { name: 'Николай', lastName: 'Объектов' }
+
+
+
+
+
+
+    // Оператор ?? (nullish coalescing operator) позволяет проверить значение на null и undefined. Он принимает два операнда:
+
+    // левый_операнд ?? правый_операнд
+
+    // Оператор возвращает значение левого операнда, если оно НЕ равно null и undefined.Иначе возвращается значение правого операнда.Например:
+
+
+
+    const result1 = "hello" ?? "world";
+    console.log(result1);   // hello
+
+    const result2 = 0 ?? 5;
+    console.log(result2);   // 0
+
+    const result3 = "" ?? "javascript";
+    console.log(result3);   // "" - пустая строка
+
+    const result4 = false ?? true;
+    console.log(result4);   // false
+
+    const result5 = null ?? "not null";
+    console.log(result5);   // not null
+
+    const result6 = undefined ?? "defined";
+    console.log(result6);   // defined
+
+    let message = null;
+    const hello = "Hi JavaScript";
+    const result7 = message ?? hello;
+    console.log(result7);   // Hi JavaScript
+
+  </script>
+</body>
+
+</html>

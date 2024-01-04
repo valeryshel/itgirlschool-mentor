@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Главный заголовок</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -14,14 +15,17 @@
       <object data="assets/img/1kitty.jpg" type="image/jpg" style="height: 120px; width: 120px;"></object>
     </div>
     <nav>
+      <img src="assets/1kitty.jpg" alt="logo" class="logo">
       <ul>
+        <li><a href="">test</a></li>
+        <li><a href="">test</a></li>
         <li><a href="">test</a></li>
         <li><a href="">test2</a></li>
         <li><a href="">test3</a></li>
       </ul>
     </nav>
   </header>
-  <main>
+  <>
     <h1>Главный заголовок</h1>
     <div>
       <form action="">
@@ -31,6 +35,7 @@
           </legend>
           <label for="man">Самец <input type="radio" name="sex" id="man"></label>
           <label for="woman">Самка <input type="radio" name="sex" id="woman"></label>
+          <input type="file" name="" id="">
         </fieldset>
       </form>
 
@@ -48,15 +53,15 @@
     </div>
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/owHmfRURu5s" title="YouTube video player"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allow="accelerometer; autoplay; clipboard-write;  encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen></iframe>
-
-    <video width="200px" height="200px" poster="" src="1kitty.mp4">
-      <source src="./1kitty.mp4">
-      <source src="./1kitty.mov">
+    <br>
+    <video width="400px" height="300px" poster="1kitty.jpg" autoplay muted loop controls>
+      <source src="cat.mp4">
+      <source src="cat.mov">
     </video>
-
-    <a href="adress-ssylki">Ссылка — это элемент навигации.</a>
+    <br>
+    <a target="_blank" href="adress-ssylki">Ссылка — это элемент навигации.</a>
     <br>
     <button style="height: 50px; width: 100px;color: black;">Кнопка — это функциональный элемент. </button>это просто
     кнопка, к которой вы можете добавить дополнительные функции, используя Javascript.
@@ -68,18 +73,35 @@
     <input type="submit" style="height: 50px; width: 100px;"> отправят !!форму, в которой они находятся, когда
     пользователь нажимает на них, если вы не указали иначе с JavaScript
 
+
+    <search>
+      ПОИСК
+    </search>
     <p>
 
       Элементы button намного проще стилизовать, чем элементы input. Вы можете добавить
       внутреннее содержимое HTML (например, em, strong или даже img) и использовать псевдоэлемент :: after и ::
       before для достижения сложного рендеринга, в то время как input принимает только атрибут текстового значения
     </p>
-  </main>
-  <footer>
-    <address>
 
-    </address>
-  </footer>
+    <input type="checkbox" name="1" id="test1"><label for="test1">test 1 label</label>
+    <input type="checkbox" name="2" id="test2"><label for="test2">test 2 label</label>
+    <input type="checkbox" name="3" id="test3"><label for="test3">test 3 label</label>
+    <input type="checkbox" name="4" id="test4"><label for="test4">test 4 label</label>
+
+    <div>
+      <label for="food">Чем питается
+        <input type="checkbox"> Сухой корм
+        <input type="checkbox"> Влажный корм
+        <input type="checkbox"> Натуральный
+      </label>
+    </div>
+    </main>
+    <footer>
+      <address>
+
+      </address>
+    </footer>
 </body>
 
 </html>

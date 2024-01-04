@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cycles</title>
+</head>
+
+<body>
+
+  Reduce
+  forEach
+  рест и спред операторы
+  Set
+
+  <script>
+
+    //SET - множество уникальных значений
+
+    const uniqueIds = new Set()
+    // добавляем элементы в коллекцию
+    uniqueIds.add(123)
+    uniqueIds.add(456)
+    uniqueIds.add(111)
+    uniqueIds.add(123)
+
+    // console.log(uniqueIds)
+    // console.log(typeof uniqueIds)
+    // console.log(uniqueIds.size)
+    // 3
+
+
+    //проверяем наличие элемента в коллекции
+    // console.log(uniqueIds.has(111))
+    // true
+    // удаляем элемент
+    uniqueIds.delete(111)
+    // console.log(uniqueIds.size)
+    // 2
+    // проверяем коллекцию
+    uniqueIds.clear()
+    // console.log(uniqueIds.size)
+    // 0
+
+    // Обход коллекции с .forEach()
+
+    const filled = new Set([1, 2, 3, 3, 3, 'hello'])
+
+    filled.forEach(function (value) {
+      // console.log(value)
+    })
+
+    // 1
+    // 2
+    // 3
+    // 'hello'
+
+
+    // ДЛя чего применяется SET ?
+
+    const nonUnique = [1, 2, 3, 4, 5, 4, 5, 1, 1]
+    const uniqueValuesArr = [...new Set(nonUnique)]
+
+    // console.log(uniqueValuesArr)
+    // [1, 2, 3, 4, 5]
+
+
+
+
+    // CYCLES - ЦИКЛЫ
+
+    //КЛАССИЧЕСКИЙ ЦИКЛ FOR
+    let step = 0;
+    for (step = 0; step < 5; step++) {        //Условие цикла
+      //console.log('Идём 1 шаг на восток');    //Тело цикла
+      //console.log(`Идём ${step + 1} шаг на восток`);    //Тело цикла
+      //Цикл запускается 5 раз, с шагом от 0 до 4
+    }
+
+
+
+    const reverseString = (str) => {
+      let result = '';
+      for (let i = 0; i < str.length; i += 1) {
+        result = `${str[i]}${result}`;
+      }
+
+      // console.log(result);
+      return result;
+    };
+
+    reverseString('Hello World')
+
+
+
+    // ЦИКЛ ДЛЯ ПЕРЕБОРА КЛЮЧЕЙ И ЗНАЧЕНИЙ ОБЪЕКТА FOR...IN
+
+    const cat = {
+      name: 'Борис',
+      color: 'red',
+      age: 8,
+    }
+
+    for (const key in cat) {
+      // console.log(`${key} - ${cat[key]}`)
+      // console.log(cat[key] + 1)
+
+      cat[key] + 1
+    }
+    // name - 'Борис',
+    // color - 'red',
+    // age - 8
+
+    // Порядок перечисления !!!!!!!
+    // В стандарте языка нет описания того, как свойства должны перечисляться, потому порядок будет зависеть от реализации в конкретном движке браузера. Но есть базовые правила, которое можно встретить во всех браузерах:
+
+    // 1️⃣ Строковые имена свойств будут перечисляться в порядке их присвоения к объекту:
+
+    const developer = {
+      name: 'Ваня',
+      language: 'JavaScript',
+      company: 'Google'
+    }
+
+    for (const key in developer) {
+      // console.log(key)
+    }
+    // name
+    // language
+    // company
+
+
+    // 2️⃣ Числовые свойства будут перечисляться в отсортированном порядке по возрастанию:
+
+    const booksById = {
+      341: {
+        name: 'Harry Potter'
+      },
+      144: {
+        name: 'Flowers for Algernon'
+      },
+      202: {
+        name: 'Lord of the Rings'
+      }
+    }
+
+    for (const key in booksById) {
+      // console.log(key)
+    }
+    // 144
+    // 202
+    // 341
+
+
+    // ЦИКЛ FOR...OF
+
+    const userNames = ['petya', 'vasya', 'evgeny'];
+
+    // name на каждой итерации свой собственный (локальный), поэтому используется const
+    for (const name of userNames) {
+      // console.log(name);
+    }
+    // => "petya"
+    // => "vasya"
+    // => "evgeny"
+
+
+    const calculateSum = (coll) => {
+      let sum = 0;
+      for (const value of coll) {
+        // sum += value;
+        sum = sum + value;
+        // console.log(sum);
+      }
+
+      // console.log(sum);
+      return sum;
+    };
+
+    calculateSum([61, 22, 23])
+
+
+    // ЦИКЛ DO
+
+    let i = 0;
+    do {
+      i++;
+      console.log(i);
+    } while (i < 5);
+    console.log(i);
+    //выражения выполняются, пока условие истинно.
+    //цикл do выполнится минимум 1 раз и запустится снова, пока i меньше 5.:
+
+    // ЦИКЛ WHILE
+    let n = 0;
+    let x = 0;
+    while (n < 5) {
+      n++;
+      console.log(n);
+    }
+    console.log(n);
+
+// С каждой итерацией цикл увеличивает n и добавляет это значение к x. Поэтому x и n получают следующие значения:
+// После первого прохода: n= 1 иx= 1
+// После второго:n= 2 иx= 3
+// После третьего прохода:n= 3 иx= 6
+
+  </script>
+</body>
+
+</html>

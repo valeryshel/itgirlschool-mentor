@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  img {
+    max-width: 100px;
+  }
+</style>
+
+<body>
+
+  <h1>API</h1>
+  <img src="" alt="avatar" id="avatar">
+  <h2 id="userName"></h2>
+
+  <h2>GET & POST</h2>
+
+  <div>
+    Поиск
+    <br>
+    <input type="text" id="userSearch">
+    <button onclick="onSearch()">Искать</button>
+    <br>
+    <img src="" alt="avatar" id="avatarSearch">
+    <h2 id="userNameSearch"></h2>
+  </div>
+
+
+  <script>
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+      fetch("https://api.github.com/users/valeryshel", {
+        headers: {
+          // "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "Content-Type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((user) => {
+          console.log(user);
+          console.log(user.name);
+          console.log(user.avatar_url);
+          document.getElementById("avatar").src = user.avatar_url;
+          document.getElementById("userName").innerHTML = user.name;
+        })
+        .catch((error) => console.log(error));
+    });
+
+    document.addEventListener('keydown', enterPush)
+
+    function enterPush(event) {
+      if (event.key == "Enter") {
+        onSearch();
+      }
+    }
+
+    function onSearch() {
+      let gitUser = document.getElementById("userSearch").value;
+      fetch(`https://api.github.com/users/${gitUser}`)
+        // fetch("https://api.github.com/users/" + gitUser)
+        // fetch("https://api.github.com/users/?user=" + gitUser) //кривой
+        .then((response) => response.json())
+        .then((user) => {
+          document.getElementById("avatarSearch").src = user.avatar_url;
+          document.getElementById("userNameSearch").innerHTML = user.name;
+        })
+        .catch((error) => console.log(error));
+    }
+
+    // console.log(testVar);
+    // var testVar;
+    // // testVar = "test var";
+
+    // console.log(testLet);
+    // let testLet;
+    // // testLet = "test let";
+
+
+  </script>
+</body>
+
+</html>

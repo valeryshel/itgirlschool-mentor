@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Массив - Array intersection</title>
+</head>
+
+<body>
+  <h1>Массив - Array Уникальная коллекция из данных, которые пересекаются</h1>
+
+
+
+  <script>
+    const intersection = (...arrays) => {
+      // console.log(...arrays); // наши массивы
+      //console.log(arrays[0]); // первый массив
+      //console.log(arrays[1]); // второй массив
+      // console.log(arrays[2]); // третий массив
+      // console.log(...arrays.slice(2));
+      // создаем переменную result для нового массива и с помощью метода фильтра узнаем, есть ли во втором массиве элементы первого,если есть(true), то они попадают в result
+      let result = arrays[0].filter((el) => arrays[1].includes(el));
+      // console.log(result);
+
+      // если у нас больше 2 массивов, то запускаем intersection (рекурсия) и обрезаем 3 массив
+      if (arrays.length > 2) {
+        result = intersection(result, ...arrays.slice(2)); // в intersection передаем result и обрезаем третий массив
+        return [...new Set(result)]; // возвращаем result и прогоняем через Set для поулчения уикальной коллекции
+      } else {
+        return result; //  если 2 массива, то просто возвращаем result
+      }
+    };
+
+    let a = [1, 2, 3, 4, 5, 6];
+    let b = [1, 9, 9, 7, 5, 9, 7, 8, 0];
+    let c = [1, 2, 3, 8, 5];
+
+    // console.log("result", intersection(a, b));
+    console.log("result", intersection(a, b, c));
+
+    // let d = [3, 0, 7, 12, 1, 15];
+    // let e = [3, 0, 7, 12, 1, 15];
+    // let f = [3, 0, 7, 12, 1];
+    // let g = [3, 0, 7, 12];
+
+    // console.log("result2", intersection(d, e, f, g));
+
+    // console.log("result3", intersection(d, e, f, g, a, b, c));
+
+
+
+    //чуть короче:
+    const newIntersection = (...arrays) => {
+      let result = arrays[0].filter((el) => arrays[1].includes(el));
+      if (arrays.length > 2) {
+        result = newIntersection(result, ...arrays.slice(2));
+        return [...new Set(result)];
+      }
+      return result;
+    };
+
+    let a1 = [1, 2, 3, 4, 5, 0];
+    let b1 = [3, 4, 5, 6, 7, 7, 7, 8, 0];
+    let c1 = [1, 2, 3, 8, 0];
+
+    console.log("result", newIntersection(a1, b1, c1));
+
+
+
+
+  </script>
+</body>
+
+</html>
