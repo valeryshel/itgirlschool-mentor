@@ -4,6 +4,13 @@
   const a = 42;
   console.log(a);
 })();
+
+// function module1() {
+//   const a = 42;
+//   console.log(a);
+// }
+// module1();
+
 (function module2() {
   const a = "43!";
   console.log(a);

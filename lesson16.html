@@ -6,38 +6,40 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JavaScript DOM, Selectors</title>
+  <style>
+    div {
+      height: 100px;
+      width: 100px;
+      margin-bottom: 5px;
+      background-color: rgb(219, 219, 12);
+    }
+
+    .hacked {
+      height: 150px;
+      width: 150px;
+      background-color: blueviolet;
+    }
+
+    .center {
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .color-white {
+      font-size: 40px;
+      color: #fff;
+    }
+  </style>
 </head>
-<style>
-  div {
-    height: 100px;
-    width: 100px;
-    margin-bottom: 5px;
-    background-color: rgb(219, 219, 12);
-  }
 
-  .hacked {
-    height: 150px;
-    width: 150px;
-    background-color: blueviolet;
-  }
-
-  .center {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .color-white {
-    font-size: 40px;
-    color: #fff;
-  }
-</style>
 
 <body>
   <h1>DOM, узлы, рендеринг</h1>
 
   <section>
+    <h2 id="title-h2">Lorem, ipsum dolor.</h2>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, sequi.</p>
     <ul>
       <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis, aliquam reiciendis, consequatur ipsum maiores
@@ -55,7 +57,7 @@
         facere vitae tempora exercitationem libero quam, id dignissimos. Beatae veniam praesentium vel explicabo
         consectetur accusantium!</li>
     </ul>
-    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, omnis.</span>
+    <span class="span">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, omnis.</span>
   </section>
 
   <div class="color-white">DIV</div>
@@ -64,26 +66,69 @@
   <div></div>
   <div></div>
   <div class="last-div hacked color-white">LAST DIV</div>
+  <br>
+
+  <form action="">
+    <input type="date" name="" id="">
+  </form>
+  <form action="">
+    <input type="date" name="" id="">
+  </form>
+  <form action="">
+    <input type="date" name="" id="">
+  </form>
+
+  <div class="user-panel main">
+    <input name="login" type="text" value="Valery">
+    <p class="login-text">Login</p>
+  </div>
+
+
   <script>
+
+    // var login = document.querySelector("div.user-panel.main input[name=login]");
+    // var login = document.querySelector("div.user-panel.main input[name=email]");
+    // var loginText = document.querySelector("div.user-panel.main p.login-text");
+    // console.log(login);
+    // console.log(loginText);
+
     let ulElement = document.getElementsByTagName('ul')[0]
+    // console.log(document);
+    // console.log(ulElement);
     //  среди потомков ul нашли последний li
     // let lastLi = ulElement.getElementsByTagName('li')[2]
     let lastLi = ulElement.querySelector('li:last-child')
+    // console.log(lastLi);
 
-    // lastLi.style.color = 'red';
-    // lastLi.style.backgroundColor = '#f3f3f3';
+    lastLi.style.color = 'red';
+    lastLi.style.backgroundColor = '#f3f3f3';
 
     // 💡 Свойства, связанные с HTML-атрибутами
     // id — получить идентификатор элемента.
+    let title = document.querySelector('#title-h2')
+    // console.log(title);
     // className — список классов в HTML-атрибуте class.
+    let span = document.querySelector('.span');
+    // console.log(span);
+
+    let someDiv = document.querySelector('div');
+    // console.log(someDiv);
+
+    let divCollection = document.querySelectorAll('div');
+    let divCollection2 = document.getElementsByTagName('div');
+    // console.log(divCollection);
+    // console.log(divCollection2);
+
+
+
     const div1 = document.getElementsByTagName('div')[0]
     // напечатать список классов в консоль
     // console.log(div1.className)
     // установить свой класс (перезатрет существующие)
     // div1.className = 'hacked';
     // добавить класс
-    div1.classList.add('center');
-    div1.classList.add('hacked');
+    // div1.classList.add('center');
+    // div1.classList.add('hacked');
     // удалить класс
     // div1.classList.remove('center');
 
@@ -92,13 +137,14 @@
 
     // style — добавить стили.
     const element2 = document.getElementsByTagName('div')[1]
+    // console.log(element2);
 
     // CSS-свойство background-color
-    element2.style.backgroundColor = 'beige'
+    // element2.style.backgroundColor = 'beige'
     // CSS-свойство color
-    element2.style.color = 'gray'
+    // element2.style.color = 'gray'
     // CSS-свойство margin-top
-    element2.style.marginTop = '20px'
+    // element2.style.marginTop = '20px'
 
     // 💡 Свойства и методы, связанные с DOM
     //     children — список дочерних элементов;
@@ -152,9 +198,9 @@
       // and give it some content
       const newContent = document.createTextNode("Hi there and greetings!");
       // add the text node to the newly created div
-      veryLastDiv.appendChild(newContent);
+      // veryLastDiv.appendChild(newContent);
       // add the newly created element and its content into the DOM
-      document.body.insertBefore(veryLastDiv, lastDiv.nextSibling);
+      // document.body.insertBefore(veryLastDiv, lastDiv.nextSibling);
     })();
 
     // Другие методы:
@@ -163,13 +209,21 @@
     // insertAdjacentHTML()
 
 
-//     <!-- beforebegin -->
-// <p>
-//   <!-- afterbegin -->
-//   foo
-//   <!-- beforeend -->
-// </p>
-// <!-- afterend -->
+    //     <!-- beforebegin -->
+    // <p>
+    //   <!-- afterbegin -->
+    //   foo
+    //   <!-- beforeend -->
+    // </p>
+    // <!-- afterend -->
+
+
+    // console.log(document.forms);
+    // console.log(document.forms.length);
+    // console.log(document.body);
+    // console.log(document.head);
+    // console.log(document.append);
+    // console.log(document.querySelector('div'));
   </script>
 </body>
 

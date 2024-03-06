@@ -10,100 +10,146 @@
 
 <body>
   <h1>Типы данных JavaScript, переменные</h1>
+  <script src="js/script.js"></script>
   <script>
-    console.log('hello JavaScript!');
+    // console.log('hello JavaScript!');
 
 
     //! Типы данных
     let string = "hello string";
     let number = 1;
-    let boolean = true;
     let bigInt = 123n;
+    let boolean = true;
+    let boolean2 = false;
     let nullType = null;
     let undefinedType = undefined;
     let symbol = Symbol();
-    let object = {
+    const object = {
       name: "Lera",
-      age: 30,
+      age: 31,
     };
+    const array = ['Lera', 31, 'girl', null, undefined] //0,1,2....
+    object.name = 'Luisa'
+    // console.log(object);
+
+    // console.log(typeof array);
 
     //! переменные
     var a = "var"; //устаревшее
     let b = "let";
     const RED = "red";
-
+    // RED = 'Красный';
+    // console.log(RED);
     var d; // var объявлена, но не назначена
-    console.log(d);
+    // console.log(d);
     let e;
-    console.log(e);
+    // console.log(e);
     // let e = 20; // повторное объявление let вызовет ошибку, нужно переназначить переменную
-    // e = 20;
+    e = 20;
+    // console.log(e);
+    let c = false;
 
     // console.log(INTEGER);
     // const INTEGER; // const без назначения выдает ошибку
-    //const INTEGER = 30;
+    const INTEGER = 30;
     var d = 10; // var можно объявить и назначить повторно
+    // console.log(d);
+    d = 30;
+    // console.log(d);
+    d = null;
 
+    let bbb = 'and';
+    let ccc = ' sun';
     //! Конкатенация и интерполяция
-    console.log("Hello" + " " + "World!");
-    console.log(5 + "55");
-    console.log(5 + 55);
-    console.log(5 + "hello world!");
-    console.log(`hello world ${bbb + ccc}`); // шаблонные литералы - интерполяция
+    // console.log("Hello" + " " + "World!");
+    // console.log(5 + "55");
+    // console.log(5 + 55);
+    // console.log(5 + " hello world!");
+    // console.log(`hello world ${bbb + ccc}`); // шаблонные литералы - интерполяция
 
-    //! логические операторы
-    //* ИЛИ "||" находит первое истинное значение
-    console.log(true || true); // true
-    console.log(false || true); // true
-    console.log(true || false); // true
-    console.log(false || false); // false
-    console.log(1 || 0); // 1
-    console.log(true || "no matter what"); // true
-    console.log(null || 1); // 1 (первое истинное значение)
-    console.log(null || 0 || 1); // 1 (первое истинное значение)
-    console.log(undefined || null || 0); // 0 (поскольку все ложно, возвращается последнее значение)
+    const DATA = 4433455;
+    const DATA2 = null;
+
+    // console.log(DATA || DATA2);
+
+
+    // //! логические операторы
+    // //* ИЛИ "||" находит первое истинное значение
+    // console.log(true || true); // true
+    // console.log(false || true); // true
+    // console.log(true || false); // true
+    // console.log(false || false); // false
+    // console.log(1 || 0); // 1
+    // console.log(-1 || 0); // -1
+    // console.log(true || "no matter what"); // true
+    // console.log(5435 || "no matter what"); // 5435
+    // console.log(0 || 5343); // 5343
+    // console.log('' || true); //true
+    // console.log(null || 1); // 1 (первое истинное значение)
+    // console.log(null || 0 || 1); // 1 (первое истинное значение)
+    // console.log(undefined || null || 0); // 0 (поскольку все ложно, возвращается последнее значение)
 
     //* И «&&» находит первое ложное значение
-    console.log(true && true); // true
-    console.log(false && true); // false
-    console.log(true && false); // false
-    console.log(false && false); // false
-    // Если первый операнд истинный,
-    // И возвращает второй:
-    console.log(1 && 0); // 0
-    console.log(1 && 5); // 5
+    // console.log(true && true); // true
+    // console.log(true && 222 && 'String'); // true
+    // console.log(false && true); // false
+    // console.log(true && false); // false
+    // console.log(false && false); // false
+    // // Если первый операнд истинный,
+    // // И возвращает последний операнд:
+    // console.log(1 && 0); // 0
+    // console.log(1 && 5); // 5
+    // console.log(1 && 5 && 23); // 23
 
     // Если первый операнд ложный,
     // И возвращает его. Второй операнд игнорируется
-    console.log(null && 5); // null
-    console.log(0 && "no matter what"); // 0
+    // console.log(null && 5); // null
+    // console.log(0 && "no matter what"); // 0
     // Можно передать несколько значений подряд. В таком случае возвратится первое «ложное» значение, на котором остановились вычисления.
 
-    console.log(1 && 2 && null && 3); // null
+    // console.log(1 && 2 && null && 3); // null
     // Когда все значения верны, возвращается последнее
-    console.log(1 && 2 && 3); // 3
+    // console.log(1 && 2 && 3); // 3
 
-    //?Приоритет оператора && больше, чем у || так что он выполняется раньше.
+    //?Приоритет оператора && (И) больше, чем у || (ИЛИ) так что он выполняется раньше.
 
-    //* a && b || c && d = (a && b) || (c && d);
+    // * a && b || c && d = (a && b) || (c && d);
+    // A B - true
+    // C D - false
+
+    // console.log(a && b || c && d || (a && b) || (c && d));
+    // console.log(b);
+    // console.log(a && b || c && d && a && b || c && d);
 
     //! !(НЕ) Оператор принимает один аргумент и выполняет следующие действия
     //Сначала приводит аргумент к логическому типу true/false.
     // Затем возвращает противоположное значение.
-    console.log(!true); // false
-    console.log(!0); // true
+
+    // console.log(!true); // false
+    // console.log(!0); // true
+    // console.log(!'Fff'); // false
+    // console.log(!(a && c)); // true
+
     //? двойное НЕ !! используют для преобразования значений к логическому типу
-    console.log(!!"non-empty string"); // true
-    console.log(!!null); // false
+    // console.log(!!"non-empty string"); // true
+    // console.log(!!123); // true
+    // console.log(!!NaN); // false
+    // console.log(!!Infinity); // true
+    // console.log(!!-Infinity); // true
+    // console.log(!!0); // false
+    // console.log(!!null); // false
+    // console.log(!!undefined); // false
+
+    // ??
 
     //? Приоритет НЕ ! является наивысшим из всех логических операторов, поэтому он всегда выполняется первым, перед && или ||.
 
     //* PRACTICE
-    console.log(null || 2 || undefined);
-    alert(alert(1) || 2 || alert(3));
-    alert(1 && null && 2);
-    alert(alert(1) && alert(2));
-    alert(null || (2 && 3) || 4);
+    // console.log(null || 2 || undefined);
+    // console.log((1) || 2 || (3));
+    // console.log(1 && null && 2);
+    // console.log((1) && (2));
+    // console.log(null || (2 && 3) || 4);
 
   </script>
 </body>
