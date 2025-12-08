@@ -18,9 +18,9 @@ $mail->CharSet = "utf-8";
 
 $mail->Host     = "smtp.freesmtpservers.com";
 $mail->Mailer   = "smtp";
-$mail->SetFrom('valeryshel@yandex.ru', 'TEST MESSAGE');
-$mail->AddAddress("valeryshel@yandex.ru");
-$mail->Subject = 'Sent from valeryshel@yandex.ru';
+$mail->SetFrom('genesisequus@yandex.ru', 'TEST MESSAGE');
+$mail->AddAddress("genesisequus@yandex.ru");
+$mail->Subject = 'Sent from genesisequus@yandex.ru';
 $mail->WordWrap   = 80;
 $mail->MsgHTML($message);
 
