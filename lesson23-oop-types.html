@@ -55,24 +55,27 @@
       this.lastname = lastName
 
       this.sayHello = function () {
-        // console.log(`Hello, I'm ${firstName}`)
+        console.log(`Hello, I'm ${firstName}`)
       }
     }
     //Для добавления свойства или метода в прототип используют prototype. Это позволяет всем экземплярам использовать одну функцию
-    Human1.prototype.sayMyName = function () {
-      return (`My name is ${this.name} ${this.lastName}`)
-    }
+    // Human1.prototype.sayMyName = function () {
+    //   return (`My name is ${this.name} ${this.lastName}`)
+    // }
 
 
 
     // Поднятие!
 
     const lera = new Human1('Lera', 'Suvorova')
-    console.log('Human1', typeof Human1);
-    console.log('Human1', typeof lera);
+    // console.log('Human1', typeof Human1);
+    // console.log('Human1', typeof lera);
     // console.log(lera);
     //-----------------------------------------------------
     // Класс (class) - ES6 - class и синтаксический сахар
+
+    // const maria = new Human2('Maria', 'Petrova');
+    // console.log(maria);
 
     class Human2 {
       constructor(firstName, lastName) {
@@ -80,7 +83,7 @@
         this.lastName = lastName
 
         this.sayHello = function () {
-          // console.log(`Hello, I'm ${firstName}`)
+          console.log(`Hello, I'm ${firstName}`)
         }
       }
 
@@ -90,8 +93,8 @@
     }
 
     const christina = new Human2('Christina', 'Korneva')
-    console.log('Human2', typeof Human2);
-    console.log('Human2', typeof christina);
+    // console.log('Human2', typeof Human2);
+    // console.log('Human2', typeof christina);
     // console.log(christina);
 
     // ПОДНЯТИЕ !!!
@@ -121,8 +124,8 @@
 
     const katya = Object.create(Human3)
     katya.init('Katya', 'Moreva')
-    console.log('Human3', typeof Human3)
-    console.log('Human3', typeof katya)
+    // console.log('Human3', typeof Human3)
+    // console.log('Human3', typeof katya)
     // console.log(katya)
 
     // Фабричная функция (factory function) - это функция, возвращающая объект, экземпляр класса или связывания объектов.
@@ -132,7 +135,7 @@
         firstName,
         lastName,
         sayHello() {
-          // console.log(`Hello, I'm ${firstName}`)
+          console.log(`Hello, I'm ${firstName}`)
         }
       }
 
@@ -141,8 +144,8 @@
 
     // Для создания экземпляра мы вызываем функцию и нам не требуется ключевое слово NEW
     const olga = Human4('Olga', 'Egorova')
-    console.log('Human4', typeof Human4)
-    console.log('Human4', typeof olga)
+    // console.log('Human4', typeof Human4)
+    // console.log('Human4', typeof olga)
     // console.log(olga)
   </script>
 </body>

@@ -25,13 +25,13 @@
   <script>
     let booksList = document.querySelector('.books');
     let liveBooks = booksList.children;
+    console.log(liveBooks);
 
     // Выведем все дочерние элементы списка .books
-    console.log(liveBooks);
     let notLiveBooks = document.querySelectorAll('.book-2');
 
     // Выведем коллекцию, содержащую все элементы с классом book
-    console.log(notLiveBooks);
+    // console.log(notLiveBooks);
 
 
 
@@ -39,9 +39,9 @@
     // Удалим первую книгу
     liveBooks[0].remove();
     // Получим 2
-    console.log(liveBooks.length);
+    // console.log(liveBooks.length);
     // Получим элемент book--two, который теперь стал первым в коллекции
-    console.log(liveBooks[0]);
+    // console.log(liveBooks[0]);
 
 
 
@@ -49,9 +49,39 @@
     // Удалим первую книгу
     notLiveBooks[0].remove();
     // Получим 3
-    console.log(notLiveBooks.length);
+    // console.log(notLiveBooks.length);
     // Получим ссылку на удалённый элемент book--one
-    console.log(notLiveBooks[0]);
+    // console.log(notLiveBooks[0]);
+
+
+
+    // liveBooks.forEach((book) => {
+    //   console.log(book); // выдаст ошибку !!!
+    // })
+
+    // notLiveBooks.forEach((book) => {
+    //   console.log(book);
+    // })
+
+    // for (const book of liveBooks) {
+    //   console.log(book);
+    // }
+
+    // for (const book of notLiveBooks) {
+    //   console.log(book);
+    // }
+
+    // liveBooks.push('Лолита');
+    // notLiveBooks.push('Лолита');
+
+    // let arrLiveBooks = Array.from(liveBooks)
+    // console.log(arrLiveBooks);
+    // let arrNotLiveBooks = Array.from(notLiveBooks)
+    // console.log(arrNotLiveBooks);
+
+    // console.log(liveBooks);
+    // console.log(notLiveBooks);
+
   </script>
 </body>
 

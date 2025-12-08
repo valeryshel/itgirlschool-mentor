@@ -12,7 +12,7 @@
   <h1>ОБЪЕКТЫ</h1>
   <script>
     // создание
-    const kitty = {}
+    const kitty = {};
 
     const cat = {
       name: "Максик",
@@ -31,17 +31,20 @@
     // console.log(cat);
 
     // Добавить свойство
-    // cat.name = 'Simon'
-    // cat.gender = 'male'
-    // cat.color = 'brown'
-    // cat.age = 2
-    // cat.adorable = true
+    cat.name = 'Simon'
+    cat.gender = 'male'
+    cat.color = 'brown'
+    cat.age = 2
+    cat.adorable = true
 
     // console.log(cat);
 
     // Создание объекта с помощью конструктора
 
-    const book = new Object({ title: 'Война и мир', author: 'Лев Толстой' })
+    const book = new Object({
+      title: 'Война и мир',
+      author: 'Лев Толстой'
+    })
 
     // console.log(book);
 
@@ -96,10 +99,13 @@
 
     // delete book3.usersReading
     // delete book3['isFinished']
+
+    // console.log(book3);
     // лучше использовать udefined
     // book3.usersReading = undefined
     // book3['isFinished'] = undefined
 
+    // console.log(book3);
 
     // Имена свойств - строка или символ
 
@@ -144,7 +150,7 @@
     const kotiko = {
       name: 'Том',
       meow2: function () {
-        // console.log('мяу мяу')
+        console.log('мяу мяу')
       },
       meow3() {
         console.log('мяу мяу мяу')
@@ -155,8 +161,8 @@
     // kotiko.meow3();
 
 
-    const firstName = 'Иван'
-    const username = 'Vanechka'
+    // const firstName = 'Иван'
+    // const username = 'Vanechka'
 
     // const user = {
     //   firstName: firstName,
@@ -169,10 +175,10 @@
     // const firstName = 'Иван'
     // const username = 'Vanechka'
 
-    const user = {
-      firstName,
-      username
-    }
+    // const user = {
+    //   firstName,
+    //   username
+    // }
 
     // console.log(user)
     // { firstName: 'Иван', username: 'Vanechka' }
@@ -201,7 +207,7 @@
     const copyUserGirl = { ...userGirl }
     // console.log(copyUserGirl)
     // { firstName: 'Марина', username: 'Ryjaya Vedma'}
-
+    // console.log(userGirl === copyUserGirl);
 
     let obj = { a: 1, b: 2, c: 3 };
 
@@ -219,8 +225,8 @@
 
     webLady.mainLanguage = 'JavaScript'
     // delete webLady.level
-
-    // console.dir(webLady)
+    // console.log(webLady);
+    // console.dir(webLady);
 
     // ARRAY
     const shows = ['Breakind Bad', 'The Office', 'Silicon Valley']
@@ -229,6 +235,7 @@
 
     shows[1] // получить элемент массива, аналогично как у объекта shows['1']
     // console.dir(shows);
+    // console.dir(shows[1]);
 
     //FUNCTIONS
     function sum(a, b) {
@@ -249,19 +256,20 @@
 
     let herName = String('Nicole')
 
+    let yourName = 'Nicole';
     // console.log(name == yourName);
     // console.log(name === yourName); //false!
     // console.log(name.age = 17);
     // console.log(name);//добавился возраст
 
 
-    let yourName = 'Nicole';
     // console.log(yourName);
     // console.log(yourName.toUpperCase());
     // console.log(yourName.charAt(1));
     // console.log(yourName.length);
     // console.log(yourName[0]);
     // console.log(yourName[0] = 'V');
+    // console.log(yourName);
     // console.log(yourName[0]);
     // console.log(yourName);//примитивы неизменяемые - иммутабельны!
 
@@ -272,6 +280,7 @@
     let numberC = new Number(123)
     // console.log(number);
     // console.log(number.toString);
+    // console.log(number === numberF);
     // console.log(number === numberC);
 
     // console.log(console)
@@ -319,7 +328,7 @@
     let descriptor = Object.getOwnPropertyDescriptor(ANNA, 'age'); //STRING!
 
 
-    // console.log(descriptor);
+    console.log(descriptor);
     // console.log(JSON.stringify(descriptor, undefined, 2));
 
     // Object.defineProperty(obj, propertyName, descriptor) - изменить флаги
@@ -332,12 +341,12 @@
 
     /// Только для чтения
 
-    Object.defineProperty(ANNA, 'os', {
-      value: 'MacOS',
-      writable: false, //не доступно для перезаписи
-      enumerable: true,
-      configurable: true
-    })
+    // Object.defineProperty(ANNA, 'os', {
+    //   value: 'MacOS',
+    //   writable: false, //не доступно для перезаписи
+    //   enumerable: true,
+    //   configurable: true
+    // })
 
     // ANNA.os = 'Windows';
 
@@ -348,28 +357,28 @@
     // Неперечислимое свойство
 
 
-    Object.defineProperty(ANNA, 'phone', {
-      value: 'iPhone',
-      writable: true, // доступно для перезаписи
-      enumerable: false, // не доступно для итераций цикла
-      configurable: true
-    })
+    // Object.defineProperty(ANNA, 'phone', {
+    //   value: 'iPhone',
+    //   writable: true, // доступно для перезаписи
+    //   enumerable: false, // не доступно для итераций цикла
+    //   configurable: true
+    // })
 
 
     for (const key in ANNA) {
-      console.log(key);
-      console.log(ANNA[key]);
+      // console.log(key);
+      // console.log(ANNA[key]);
     }
 
     // Неконфигурируемое свойство
     // Неконфигурируемое свойство не может быть удалено, его атрибуты не могут быть изменены.
 
-    Object.defineProperty(ANNA, 'processor', {
-      value: 'Intel Core',
-      writable: true,
-      configurable: false, // запрещаем переконфигурирование!
-      enumerable: true
-    })
+    // Object.defineProperty(ANNA, 'processor', {
+    //   value: 'Intel Core',
+    //   writable: true,
+    //   enumerable: true,
+    //   configurable: false, // запрещаем переконфигурирование!
+    // })
 
     // delete ANNA.processor
 
@@ -387,7 +396,7 @@
     // ПОЛУЧЕНИЕ ВСЕХ СВОЙСТВ И ИХ ДЕСКРИПТОРОВ
     const allPropertyDescriptors = Object.getOwnPropertyDescriptors(ANNA)
 
-    // console.log(allPropertyDescriptors)
+    console.log(allPropertyDescriptors)
 
     // ИЗМЕНЕНИЕ СРАЗУ НЕСКОЛЬКИХ СВОЙСТВ
     Object.defineProperties(ANNA, {
@@ -396,9 +405,10 @@
       isMarried: { value: "true", writable: true }
     });
 
-    // console.log(ANNA);
+    console.log(ANNA);
 
-    // console.log(Object.getOwnPropertyDescriptors(ANNA))
+    console.log(Object.getOwnPropertyDescriptors(ANNA))
+    console.table(Object.getOwnPropertyDescriptors(ANNA))
 
 
     //  Защита объектов
@@ -412,12 +422,12 @@
 
     // А также есть методы и для их проверки:
 
-    Object.isExtensible(obj)
+    // Object.isExtensible(obj)
     // Возвращает false, если добавление свойств запрещено, а иначе true.
-    Object.isSealed(obj)
+    // // Object.isSealed(obj)
     // Возвращает true, если добавление/удаление свойств запрещено и для всех существующих свойств установлено configurable: false.
-    Object.isFrozen(obj)
-// Возвращает true, если добавление/удаление/изменение свойств запрещено, и для всех текущих свойств установлено свойство configurable: false, writable: false.
+    // // Object.isFrozen(obj)
+    // Возвращает true, если добавление/удаление/изменение свойств запрещено, и для всех текущих свойств установлено свойство configurable: false, writable: false.
 
 
 

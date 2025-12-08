@@ -65,7 +65,7 @@
     const nonUnique = [1, 2, 3, 4, 5, 4, 5, 1, 1]
     const uniqueValuesArr = [...new Set(nonUnique)]
 
-    console.log(uniqueValuesArr)
+    // console.log(uniqueValuesArr)
     // [1, 2, 3, 4, 5]
 
 
@@ -75,9 +75,9 @@
 
     //КЛАССИЧЕСКИЙ ЦИКЛ FOR
     let step = 0;
-    for (step = 0; step < 5; step++) {        //Условие цикла
+    for (step = 0; step < 5; step += 1) {        //Условие цикла
       //console.log('Идём 1 шаг на восток');    //Тело цикла
-      //console.log(`Идём ${step + 1} шаг на восток`);    //Тело цикла
+      // console.log(`Идём ${step + 1} шаг на восток`);    //Тело цикла
       //Цикл запускается 5 раз, с шагом от 0 до 4
     }
 
@@ -86,15 +86,23 @@
     const reverseString = (str) => {
       let result = '';
       for (let i = 0; i < str.length; i += 1) {
+        // console.log(str.length);
         result = `${str[i]}${result}`;
       }
-
       // console.log(result);
       return result;
     };
 
-    reverseString('Hello World')
+    // reverseString('Hello World')
 
+    // console.log(reverseString('test123'));
+
+    // Генерируем таблицу умножения от 1 до 10
+    for (let i = 1; i <= 10; i++) {
+      for (let j = 1; j <= 10; j++) {
+        // console.log(`${i} * ${j} = ${i * j}`);
+      }
+    }
 
 
     // ЦИКЛ ДЛЯ ПЕРЕБОРА КЛЮЧЕЙ И ЗНАЧЕНИЙ ОБЪЕКТА FOR...IN
@@ -168,6 +176,13 @@
     // => "vasya"
     // => "evgeny"
 
+    userNames.forEach((name) => {
+      // console.log('Имя: ', name);
+      if (name === 'vasya') {
+        // console.log('Вася');
+      }
+    })
+
 
     const calculateSum = (coll) => {
       let sum = 0;
@@ -197,7 +212,7 @@
 
     // ЦИКЛ WHILE
     let n = 0;
-    let x = 0;
+    // let x = 0;
     while (n < 5) {
       n++;
       // console.log(n);

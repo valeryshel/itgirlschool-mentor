@@ -9,9 +9,47 @@
 </head>
 
 <body>
+  <form action="" id="anketa">
+
+    <input required form="anketa" type="text" id="name">
+    <input required form="anketa" type="text" id="password">
+    <input required form="anketa" type="email">
+    <select form="anketa" name="" id="">
+      <option selected hidden value="">профессия</option>
+      <option value=""></option>
+      <option value=""></option>
+    </select>
+    <button type="submit" disabled>Confirm</button>
+  </form>
 
   <script>
 
+    // let validation = function () {
+    //   if (input.id == 'name') {
+
+    //   } else if (input.id == 'password') {
+
+    //   } else if (input.type == 'email') {
+
+    //   }
+    // }
+
+    // let inputs = document.querySelector('input[required]');
+    // inputs.forEach(input => {
+
+    //   input.addEventListener('input', () => {
+    //     validation()
+
+    //   })
+    // });
+
+    // let formAnketa = document.querySelector('#anketa')
+    // formAnketa.addEventListener('submit', () => {
+    //   event.preventDefault();
+    //   validation();
+
+
+    // })
     // - Хранение по ссылке и по значению
 
     //Когда мы что-то создаем, то выделяется память
@@ -77,7 +115,7 @@
     user = { name: 'Иван' }
 
     // console.log(admin) // { name: 'Анна', age: 21 }
-
+    // console.log(user);
     admin.isAdmin = true
 
     // console.log(user) // { name: 'Иван' }
@@ -123,7 +161,7 @@
     // console.log(dog, dogCopy, dog2Copy);
 
 
-    // Коипрование объекта через SPREAD-синтаксис
+    // Копирование объекта через SPREAD-синтаксис
 
     const student = {
       name: 'Вика',
@@ -203,6 +241,7 @@
     const watchedMovies = ['Rocky', 'Terminator 2', 'The Matrix']
     const myWatchedMovies = [...watchedMovies] // это новый массив не связанный по ссылке со старым!!!
     // console.log(myWatchedMovies);
+    // console.log(watchedMovies === myWatchedMovies);
     myWatchedMovies[0] = 'Prince of Persia';
     // console.log(watchedMovies);
     // console.log(myWatchedMovies);
@@ -232,33 +271,33 @@
     // 3.При создании объекта с помощью литерала {}
     // У объекта скопировать свойства из другого объекта в новый:
 
-    // const persona = { name: 'Иван', lastName: 'Объектов' }
-    // const userData = Object.assign({ username: 'killer3000' }, persona)
-    // const userData = { ...persona, username: 'killer3000' }
+    // const persona = { name: 'Женя', lastName: 'Полякова' }
+    // const userData = Object.assign({ username: 'Sadovod3000' }, persona)
+    // const userData = { ...persona, username: 'Sadovod3000' }
 
     // console.log(userData)
 
     // {
-    //    name: 'Иван',
-    //    lastName: 'Объектов',
-    //    username: 'killer3000'
+    //    name: 'Женя',
+    //    lastName: 'Полякова',
+    //    username: 'Sadovod3000'
     // }
 
     // Если свойства в новом и старом объекте совпадают, то будет использоваться значение свойства, которое шло последним:
-    // const persona = { name: 'Иван', lastName: 'Объектов' }
-    // const userData = { name: 'Николай', ...persona }
+    // const persona = { name: 'Женя', lastName: 'Полякова' }
+    // const userData = { name: 'Вита', ...persona }
 
     // console.log(userData)
-    // { name: 'Иван', lastName: 'Объектов' }
+    // { name: 'Женя', lastName: 'Полякова' }
 
     //Если поставить спред в начало, то будет использоваться новое имя:
 
 
-    // const person = { name: 'Иван', lastName: 'Объектов' }
-    // const userData = { ...person, name: 'Николай' }
+    // const person = { name: 'Женя', lastName: 'Полякова' }
+    // const userData = { ...person, name: 'Вита' }
 
     // console.log(userData)
-    // { name: 'Николай', lastName: 'Объектов' }
+    // { name: 'Вита', lastName: 'Полякова' }
 
 
 
@@ -274,27 +313,32 @@
 
 
     const result1 = "hello" ?? "world";
-    console.log(result1);   // hello
+    // console.log(result1);   // hello
 
     const result2 = 0 ?? 5;
-    console.log(result2);   // 0
+    // console.log(result2);   // 0
 
     const result3 = "" ?? "javascript";
-    console.log(result3);   // "" - пустая строка
+    // console.log(result3);   // "" - пустая строка
 
     const result4 = false ?? true;
-    console.log(result4);   // false
+    // console.log(result4);   // false
 
     const result5 = null ?? "not null";
-    console.log(result5);   // not null
+    // console.log(result5);   // not null
 
     const result6 = undefined ?? "defined";
-    console.log(result6);   // defined
+    // console.log(result6);   // defined
 
     let message = null;
     const hello = "Hi JavaScript";
     const result7 = message ?? hello;
-    console.log(result7);   // Hi JavaScript
+    // console.log(result7);   // Hi JavaScript
+
+    const result8 = null ?? undefined;
+    // console.log(result8);
+    const result9 = undefined ?? null ?? 'qwerty';
+    // console.log(result9);
 
   </script>
 </body>

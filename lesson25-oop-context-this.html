@@ -13,8 +13,6 @@
   <h1>OOP</h1>
 
   <script>
-    // 'use strict'
-
     // ПРОСТАЯ ФУНКЦИЯ
     // function hello(who) {
     //   console.log(`Hello, ${who}!`)
@@ -26,6 +24,7 @@
     // =====================================================================================================
 
     // анонимная функция мгновенного вызова
+    // IIFE
     // ; (function () {
     //   console.log(this === window)
     // })()
@@ -33,7 +32,9 @@
 
     // USE STRICT
     // function hello() {
+    //   'use strict';
     //   console.log(this === undefined)
+    //   console.log(this === window)
     // }
 
     // hello()
@@ -61,7 +62,7 @@
 
     // //1
     // let greeting = user.greet.bind(user) //привязали контекст
-    // greeting() //Hello, my name is
+    // greeting() //Hello, my name is Lera
     // //2
     // user.greet.bind(elena)()
 
@@ -71,17 +72,17 @@
     //   console.log(`${greetWord} ${this.name} ${emoticon}`)
     // }
 
-    // const user1 = { name: 'irina' }
+    // const user1 = { name: 'Irina' }
     // const user2 = { name: 'Nina' }
 
     // greet2.call(user1, 'Hello,', ':-)')
-    // // Hello, Alex :-)
+    // // Hello, Irina :-)
     // greet2.call(user2, 'Good morning,', ':-D')
-    // // Good morning, Ivan :-D
+    // // Good morning, Nina :-D
     // greet2.apply(user1, ['Hello,', ':-)'])
-    // // Hello, Alex :-)
+    // // Hello, Irina :-)
     // greet2.apply(user2, ['Good morning,', ':-D'])
-    // // Good morning, Ivan :-D
+    // // Good morning, Nina :-D
 
     //==============================================================================
 
@@ -89,19 +90,25 @@
     //   console.log(text + text2 + this.name);
     //   console.log(this);
     // }
+    // printName();
+    // printName('Lidiya', ' Petrova');
 
     // let user1 = {
     //   name: 'Victoria',
     // }
-
-    // // let sayName = printName.bind(user1, 'My ', 'name is ') //мы хотим чтобы функция printName выполнялась в контексте user1
-    // // sayName()
+    // VER 1
+    // let sayName = printName.bind(user1, 'My ', 'name is ') //мы хотим чтобы функция printName выполнялась в контексте user1
+    // sayName()
     // console.log(typeof sayName);
+
+    // VER 2
     // let sayName = printName.bind(user1, 'My ') //мы хотим чтобы функция printName выполнялась в контексте user1
     // sayName('name is ')
 
     //=====================================================================================================
 
+
+    // ПРИМЕР С МЕТОДОМ ВНУТРИ ОБЪЕКТА
     // const auto = {
     //   brand: 'BMW',
     //   drive() {
@@ -117,9 +124,11 @@
 
 
     //===========================================================================
+    // ! !SKIP
     // const elem = document.querySelector.bind(document)
 
     // console.log(elem);
+    // console.log(document);
     // console.log(typeof elem);
     // console.log(typeof document.querySelector);
     // console.log(elem === document.querySelector);
@@ -128,48 +137,49 @@
 
     // console.log(header);
     //============================================================================
+
     // вызов конструктора
 
     // function Lady() {
     //   this.name = 'Diana'
     // }
 
-    class Lady {
-      constructor(name) {
-        // При вызове сперва создаётся новый пустой объект, и он присваивается this.
-        // this = {};
-        this.name = name; //Выполняется код функции. Обычно он модифицирует this, добавляет туда новые свойства.
-        //return this  - Возвращается значение this.
-      }
-      wave() {
-        console.log(`${this.name} is waving her hand`);
-      }
-      wearingCrown() {
-        console.log(`${this.name} is wearing crown`);
-      }
-    }
+    // class Lady {
+    //   constructor(name) {
+    //     // При вызове сперва создаётся новый пустой объект, и он присваивается this.
+    //     // this = {};
+    //     this.name = name; //Выполняется код функции. Обычно он модифицирует this, добавляет туда новые свойства.
+    //     //return this  - Возвращается значение this.
+    //     this.wave = function () {
+    //       console.log(`${this.name} is waving her hand`);
+    //     }
+    //   }
+    //   wearingCrown() {
+    //     console.log(`${this.name} is wearing crown`);
+    //   }
+    // }
 
-    const firstLady = new Lady('Princess Anna')
-    console.log(firstLady);
-    class Princess {
-      constructor(name, waving) {
-        this.name = name;
-        this.waving = waving;
-        //function princessGreet
-        this.princessGreet = this.waving.wave.bind(this.waving) //фнк
-      }
-      greet() {
-        // this.princessGreet()
-        console.log(`${this.name} making a reverance`);
-      }
-    }
+    // const firstLady = new Lady('Princess Anna')
+    // console.log(firstLady);
+    // class Princess {
+    //   constructor(name, waving) {
+    //     this.name = name;
+    //     this.waving = waving;
+    //     //function princessGreet
+    //     this.princessGreet = this.waving.wave.bind(this.waving) //фнк
+    //   }
+    //   greet() {
+    //     // this.princessGreet()
+    //     console.log(`${this.name} making a reverance`);
+    //   }
+    // }
 
-    let princess2 = new Princess('Dinara');
-    let wear = Lady.prototype.wearingCrown.call(princess2)//
+    // let princess2 = new Princess('Dinara');
+    // let wear = Lady.prototype.wearingCrown.call(princess2)//
 
-    const dutchPrincess = new Princess('Anna', firstLady)
-    console.log(dutchPrincess.name);
-    dutchPrincess.greet()
+    // const dutchPrincess = new Princess('Anna', firstLady)
+    // console.log(dutchPrincess.name);
+    // dutchPrincess.greet()
 
 
     // console.log(firstLady instanceof Lady);    // true
@@ -177,17 +187,45 @@
 
 
     //=====================================================================================================
+    // class Person {
+    //   constructor(name) {
+    //     this.name = name;
+    //     this.sayHello = function () {
+    //       console.log(`Hello there! I'm ${this.name}.`);
+    //       console.log(this);
+    //     }
+    //   }
 
-    // const bill = {
-    //   tip: 0.1,
-    //   calculate(total) {
+    //   introduceSelf() {
+    //     console.log(`Hi! I'm ${this.name}.`);
     //     console.log(this);
-    //     return total + total * this.tip;
-    //   },
-    //   detail(dish1, dish2, summ) {
-    //     return `Ваш ужин из ${dish1 + ' и ' + dish2} составляет ${this.calculate(summ)}`
     //   }
     // }
+
+    // const anna = new Person("Anna");
+    // console.log(anna);
+    // console.log(anna.introduceSelf());
+    // console.log(anna.sayHello());
+
+    // Bind the introduceSelf() method to the Anna object
+    // const boundIntroduceSelf = anna.introduceSelf.bind(anna);
+    // const boundSayHello = anna.sayHello.bind(anna);
+
+    // Call the boundIntroduceSelf() method
+    // boundIntroduceSelf();
+    // boundSayHello();
+    // =====================================================================================================
+
+    const bill = {
+      tip: 0.1,
+      calculate(total) {
+        console.log(this);
+        return total + total * this.tip;
+      },
+      detail(dish1, dish2, summ) {
+        return `Ваш ужин из ${dish1 + ' и ' + dish2} составляет ${this.calculate(summ)}`
+      }
+    }
 
     // const pay = bill.calculate(1000);
     // const calcBill = bill.calculate.bind({ tip: 0.5 }, 1000);

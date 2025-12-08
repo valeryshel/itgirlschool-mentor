@@ -36,35 +36,45 @@
 
 
 
-    try {
-      const six = 6 // 1. Создаём константу
-      console.log(six) // 2. Выведет 6
+    // try {
+    //   const six = 6 // 1. Создаём константу
+    //   console.log(six) // 2. Выведет 6
 
-      six = 7 // Ошибка! Присваиваем новое значение в const
+    //   six = 7 // Ошибка! Присваиваем новое значение в const
 
-      // с этого места управление переходит в catch
+    //   // с этого места управление переходит в catch
 
-      const nine = 9 // не выполнится
-      console.log(six + nine) // и это тоже не исполнится
-    } catch (err) {
-      console.log('Поймали ошибку!') // 3. Обработали ошибку
-    }
+    //   const nine = 9 // не выполнится
+    //   console.log(six + nine) // и это тоже не исполнится
+    // } catch (err) {
+    //   console.log('Поймали ошибку!') // 3. Обработали ошибку
+    // } catch (err) {
+    //   console.log('object');
+    // }
 
-    console.log('Что ж, можно и продолжать') // 4. Будет выполняться дальше
+    // console.log('Что ж, можно и продолжать') // 4. Будет выполняться дальше
 
 
+    // try {
+    //   // Код, который может вызвать ошибку
+    //   throw new Error('Ошибка!');
+    // } catch (error1) {
+    //   // Обработка ошибки 1
+    //   console.log('Ошибка 1:', error1.message);
+    // } catch (error2) {
+    //   // Обработка ошибки 2
+    //   console.log('Ошибка 2:', error2.message);
+    // } finally {
+    //   // Блок finally выполняется всегда, независимо от того, была ли ошибка или нет
+    //   console.log('Блок finally выполнен');
+    // }
 
-    let input = "3333";
-    if (isNaN(input)) {
-      console.log("Это не число");
-    } else {
-      console.log("Это число");
-    }
+
 
 
   </script>
-  <!-- <script async src="/js/iife.js"></script>
-  <script defer src="/js/iife.js"></script> -->
+  <!-- <script async src="/js/iife.js"></script> -->
+  <!-- <script defer src="/js/iife.js"></script> -->
 
 
 </body>

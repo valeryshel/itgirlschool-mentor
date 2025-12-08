@@ -17,7 +17,7 @@
   <script>
 
     class Human {
-      constructor(lastName, firstName, gymName, profession) {
+      constructor(firstName, lastName, gymName, profession) {
         this.firstName = firstName
         this.lastName = lastName
         this.gymName = 'Everest'
@@ -29,16 +29,16 @@
       }
 
       sayMyName() {
-        return (`My name is ${this.name} ${this.lastName}`);
+        return (`My name is ${this.firstName} ${this.lastName}`);
       }
       doSport() {
         return (`I go to the ${this.gymName}`);
       }
     }
 
-    // const christina = new Human('Christina', 'Korneva')
-    // console.log('Human', typeof Human);
-    // console.log('Human', typeof christina);
+    const christina = new Human('Christina', 'Korneva')
+    // console.log('Human: ', typeof Human);
+    // console.log('Christina: ', typeof christina);
     // console.log(christina);
 
 
@@ -56,20 +56,18 @@
     }
 
     const alisa = new Child('Korneva', 'Alisa', 'Alisochka')
-    console.log(alisa);
+    // console.log(alisa);
 
     // ===========================================================
     // НАСЛЕДОВАНИЕ 2
     class Worker extends Human {
-      constructor(lastName, firstName, profession) {
+      constructor(lastName, firstName, profession, speed) {
         super(lastName, firstName)
         this.profession = profession
 
         this.typing = (speed) => {
           console.log(`${this.name} typing  ${speed}`);
         }
-
-
       }
 
       work(job) {
@@ -78,8 +76,9 @@
     }
 
     let irina = new Worker('Listeva', 'Irina', 'tester')
-    console.log(irina);
-    console.log(irina.work('great job'));
+    // console.log(irina);
+    // console.log(irina.work('great job'));
+    // console.log(irina.typing(150));
 
     //переопределение родительского метода
     // class Enemy {
@@ -99,15 +98,79 @@
     //     super(name, phrase, power)
     //     this.species = "alien"
     //   }
-    //   attack = () => console.log(`Now I'm ${this.alien} and I'm atacking with laser power of ${this.power} , HA!`) // Ove$rride the parent method.
+    //   attack = () => console.log(`Now I'm ${this.name} and I'm atacking with laser power of ${this.power} , HA!`) // Ove$rride the parent method.
     // }
 
-    // const alien = new Alien("Ali", "I'm Ali the alien!", 1768760)
+    // const alien = new Alien("Ali", "I'm Ali the alien!", 170)
     // alien.attack() // вывод: "Now I'm doing a different thing, HA!"
 
 
     // ===========================================================
     // инкапсуляция
+    // class Enemy {
+    //   constructor(name, phrase, power,) {
+
+    //     this.name = name
+    //     this.phrase = phrase
+    //     this.power = power
+    //   }
+    //   sayPhrase = () => console.log(`I'm am ${this.name}`);
+    //   attack = () => console.log(`I'm attacking with a power of ${this.power}!`)
+    // }
+
+    // class Alien extends Enemy {
+    //   #birthYear // приватное свойство
+    //   _skinColor //защищенное свойство
+    //   // Это не синтаксис языка: есть хорошо известное соглашение между программистами, что такие свойства и методы не должны быть доступны извне. Большинство программистов следуют этому соглашению.
+    //   // Защищённые поля наследуются
+
+
+
+    //   constructor(name, phrase, power, birthYear, _skinColor) {
+    //     super(name, phrase, power)
+
+    //     this.#birthYear = birthYear
+    //     this._skinColor = _skinColor
+    //   }
+
+
+    //   // GETTERS & SETTERS
+    //   // set skinColor(value) {
+    //   //   this._skinColor = value
+    //   // }
+    //   // get skinColor() {
+    //   //   return this._skinColor
+    //   // }
+
+    //   setSkinColor(value) {
+    //     this._skinColor = value
+    //   }
+    //   getSkinColor() {
+    //     return this._skinColor
+    //   }
+
+    //   howOld = () => console.log(`I was born in ${this.#birthYear}`) // и используем его в соответствующем методе
+    //   #fly = () => {
+    //     return `I'm levitating`
+    //   }
+    // }
+    // const alien2 = new Alien("Reynar", "I'm the oldest alien!", 1344530, 5400, 'yelow')
+
+    // console.log(alien2.name) // вывод: Reynar
+    // alien2.sayPhrase() // вывод: I'm am Reynar
+    // alien2.howOld()
+    // // console.log(alien2.#birthYear) // Выбрасывает ошибку
+    // // console.log(alien2.#fly());
+    // console.log(alien2._skinColor);
+    // // alien2.setSkinColor('green');
+    // console.dir(alien2) //
+
+
+
+    // ===========================================================
+    //полиморфизм основанный на параметрах (аргументах) и на наследовании
+
+    //переопределение родительского метода
     class Enemy {
       constructor(name, phrase, power,) {
 
@@ -119,118 +182,79 @@
       attack = () => console.log(`I'm attacking with a power of ${this.power}!`)
     }
 
-    class Alien extends Enemy {
-      #birthYear // приватное свойство
-      _skinColor //защищенное свойство
-
-
-      constructor(name, phrase, power, birthYear, _skinColor) {
+    class Bug extends Enemy {
+      constructor(name, phrase, power) {
         super(name, phrase, power)
-
-        this.#birthYear = birthYear
-        this._skinColor = _skinColor
+        this.species = "bug"
       }
-
-      // set skinColor(value) {
-      //   this._skinColor = value
-      // }
-      // get skinColor() {
-      //   return this._skinColor
-      // }
-
-      setSkinColor(value) {
-        this._skinColor = value
-      }
-      getSkinColor() {
-        return this._skinColor
-      }
-
-      howOld = () => console.log(`I was born in ${this.#birthYear}`) // и используем его в соответствующем методе
-      #fly = () => {
-        return `I'm levitating`
-      }
-    }
-    const alien2 = new Alien("Reynar", "I'm the oldest alien!", 1344530, 5400, 'yelow')
-
-    console.log(alien2.name) // вывод: Reynar
-    alien2.sayPhrase() // вывод: I'm the oldest alien!
-    alien2.howOld()
-    // console.log(alien2.#birthYear) // Выбрасывает ошибку
-    // console.log(alien2.#fly());
-    console.log(alien2._skinColor);
-    alien2.setSkinColor('green');
-    console.dir(alien2) //
-
-
-
-    // ===========================================================
-    //полиморфизм основанный на параметрах (аргументах) и на наследовании
-
-    //переопределение родительского метода
-    // class Enemy {
-    //   constructor(name, phrase, power,) {
-
-    //     this.name = name
-    //     this.phrase = phrase
-    //     this.power = power
-    //   }
-    //   sayPhrase = () => console.log(`I'm am ${this.name}`);
-    //   attack = () => console.log(`I'm attacking with a power of ${this.power}!`)
-    // }
-
-    // class Bug extends Enemy {
-    //   constructor(name, phrase, power) {
-    //     super(name, phrase, power)
-    //     this.species = "bug"
-    //   }
-    //   hide = () => console.log("You can't catch me now!")
-    // }
-
-    // class Alien extends Enemy {
-    //   constructor(name, phrase, power) {
-    //     super(name, phrase, power)
-    //     this.species = "alien"
-    //   }
-    //   attack = () => console.log(`Now I'm ${this.alien} and I'm atacking with laser power of ${this.power} , HA!`) // Override the parent method.
-    // }
-
-    // // const bug1 = new Bug("Buggy", "Your debugger doesn't work with me!", 25)
-    // const alien = new Alien("Pagatti", "I'm Paggati the alien!", 1768760)
-
-    // console.log(alien);
-    // alien.attack()
-
-
-
-
-
-    // Bind Call Apply
-
-
-    class Employee {
-      constructor(name, position, salary) {
-        this.name = name;
-        this.position = position;
-        this.salary = salary;
-      }
-
-      calculateBonus(bonus) {
-        this.salary += this.salary * (bonus / 100);
-      }
+      hide = () => console.log("You can't catch me now!")
     }
 
-    Employee.prototype.calculateBonus2 = function (bonus) {
-      this.salary += this.salary * bonus / 100;
+    class Alien extends Enemy {
+      constructor(name, phrase, power) {
+        super(name, phrase, power)
+        this.species = "alien"
+      }
+      attack = () => console.log(`Now I'm ${this.name} and I'm atacking with laser power of ${this.power} , HA!`) // Override the parent method.
     }
 
-    const employee = new Employee("Alexa", "Engineer", 100000);
-    const employee2 = new Employee("Jane", "Manager", 500000);
+    const bug1 = new Bug("Buggy", "Your debugger doesn't work with me!", 25)
+    const alien = new Alien("Pagatti", "I'm Paggati the alien!", 1768760)
 
-    employee2.calculateBonus.call(employee, 10);
-    Employee.prototype.calculateBonus2.call(employee2, 10);
+    console.log(alien);
+    alien.attack()
 
-    console.log(employee.salary);
-    console.log(employee2.salary);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Bind Call Apply - ОТДЕЛЬНАЯ ЛЕКЦИЯ!
+
+
+    // class Employee {
+    //   constructor(name, position, salary) {
+    //     this.name = name;
+    //     this.position = position;
+    //     this.salary = salary;
+    //   }
+
+    //   calculateBonus(bonus) {
+    //     this.salary += this.salary * (bonus / 100);
+    //   }
+    // }
+
+    // Employee.prototype.calculateBonus2 = function (bonus) {
+    //   this.salary += this.salary * bonus / 100;
+    // }
+
+    // const employee = new Employee("Alexa", "Engineer", 100000);
+    // const employee2 = new Employee("Jane", "Manager", 100000);
+
+    // employee2.calculateBonus.call(employee, 10);
+    // Employee.prototype.calculateBonus2.call(employee2, 10);
+
+    // console.log(employee.salary);
+    // console.log(employee2.salary);
 
 
   </script>

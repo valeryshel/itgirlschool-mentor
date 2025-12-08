@@ -5,11 +5,11 @@
 // в другом модуле через импорт:
 import { sum } from "./module1.js";
 
-console.log(sum(3, 2));
+// console.log(sum(3, 2));
 
 // Точно так же, мы можем импортировать и константы:
 import { user, books } from "./module1.js";
-console.log(user, books);
+// console.log(user, books);
 
 // Обратите внимание, что перечисляя названия
 // при импорте через запятую, можно в одном
@@ -23,11 +23,11 @@ console.log(user, books);
 import { user2 as admin } from "./module1.js";
 
 // console.log(user2); //Ошибка!
-console.log(admin);
+// console.log(admin);
 
 // Это также работает и со множественным импортом:
 import { books as library, SOME_SETTINGS_FLAG as turnedOn } from "./module1.js";
-console.log(library);
+// console.log(library);
 
 // Экспортировать функциональность можно также
 // и уже после того, как она определена:
@@ -46,8 +46,12 @@ export { user3 as admin2 };
 
 // При импорте такой функциональности в другом модуле
 // нам уже не требуется использовать {}.
-import multiple from "./module1.js";
-console.log(multiple(4, 2));
+// import multiple from "./module1.js";
+// console.log(multiple(4, 2));
+
 // Более того, мы сразу можем использовать другое имя при импорте:
-import multiplicator from "./module1.js";
-console.log(multiplicator(3, 4));
+// import multiplicator from "./module1.js";
+// console.log(multiplicator(3, 4));
+
+import { person } from "./module1.js";
+// console.log(person);

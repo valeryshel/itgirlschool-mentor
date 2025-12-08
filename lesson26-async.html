@@ -38,20 +38,21 @@
 
     // Cоздается промис, который отправляет GET-запрос на сервер и получает данные пользователя с id=2. Если запрос выполняется успешно (HTTP-код ответа 200), то выводятся данные пользователя в формате JSON. Если происходит ошибка (например, пользователь с таким id не найден), то выводится сообщение об ошибке HTTP.
 
-    // const promise = fetch('https://jsonplaceholder.typicode.com/users/2');
+    const promise = fetch('https://jsonplaceholder.typicode.com/users/2435345345435345345');
 
-    // promise.then((response) => {
-    //   if (response.ok) {
-    //     console.log(response);
-    //     return response.json();
-    //   } else {
-    //     throw new Error('Ошибка HTTP: ' + response.status);
-    //   }
-    // }).then((data1) => {
-    //   console.log(data1); // данные пользователя с id=1
-    // }).catch((error) => {
-    //   console.error(error); // ошибка HTTP: 404 (например)
-    // });
+    promise.then((response) => {
+      if (response.ok) {
+        console.log(response);
+        return response.json();
+      } else {
+        console.log(response);
+        throw new Error('Ошибка HTTP: ' + response.status);
+      }
+    }).then((data1) => {
+      console.log(data1); // данные пользователя с id=1
+    }).catch((error) => {
+      console.error(error); // ошибка HTTP: 404 (например)
+    });
 
 
     // Состояния Resolve и rejected

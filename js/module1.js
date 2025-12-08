@@ -10,6 +10,10 @@ export function sum(a, b) {
 // но и константы:
 export const SOME_SETTINGS_FLAG = false;
 export const user = {};
+export let person = {
+  name: "Irina",
+  age: "30",
+};
 
 export const user2 = {
   name: "Unona",
@@ -20,6 +24,11 @@ export const books = ["Война и мир", "Мастер и Маргарит�
 
 // Функция может не иметь имени,
 // потому что используется экспорт по умолчанию.
-export default function (a, b) {
-  return a * b;
-}
+// export default function (a, b) {
+//   return a * b;
+// }
+// export default function (a, b) {
+//   return a * b * 2;
+// }
+
+console.log(this);
